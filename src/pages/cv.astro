@@ -1,0 +1,57 @@
+---
+import MinimalistLayout from "@/layouts/MinimalistLayout.astro";
+
+import About from "@/components/Minimalist/Sections/About.astro";
+import Education from "@/components/Minimalist/Sections/Education.astro";
+import Experience from "@/components/Minimalist/Sections/Experience.astro";
+import Hero from "@/components/Minimalist/Sections/Hero.astro";
+import Projects from "@/components/Minimalist/Sections/Projects.astro";
+import Skills from "@/components/Minimalist/Sections/Skills.astro";
+import KeyboardManager from "@/components/KeyboardManager.astro";
+
+import { languages } from '../i18n/ui';
+
+const lang = Astro.url.searchParams.get("lang")
+  ? Astro.url.searchParams.get("lang")
+  : "es";
+
+const { id } = Astro.params;
+
+//Obtendremos los datos del CV desde archivos locales con await
+
+var basics  = await import(`./cv-${lang}.json`);
+
+const ip = Astro.clientAddress;
+---
+
+<div>Tu dirección IP es: <span class="address">{ip}</span></div>
+
+<MinimalistLayout
+  title="Portfolio de Buscer"
+  description="Desarrollador y Programador Web con 3 años de experiencia"
+>
+  <main>
+    <Hero basics={basics} />
+    <h1>{id}</h1>
+    <h1>La URL actual es: {Astro.url}</h1>
+    <h1>La URL actual es: {Astro.url.search}</h1>
+    <h1>La URL actual es: {Astro.url.searchParams.get("lang")}</h1>
+    <h1>el Lang actual es: {Astro.site}</h1>
+
+    <About />
+    <Skills />
+    <Experience />
+    <Education />
+    <Projects />
+  </main>
+
+  <KeyboardManager />
+</MinimalistLayout>
+
+<style>
+  main {
+    padding: 4rem;
+    margin: auto;
+    width: 100%;
+  }
+</style>

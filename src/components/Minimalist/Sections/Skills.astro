@@ -1,7 +1,102 @@
 ---
 import Section from "../Section.astro";
+import { skills } from "@cv";
+
+import JSFIcon from "@/icons/JSF.astro";
+import JavaIcon from "@/icons/Java.astro";
+import JavaScriptIcon from "@/icons/JavaScript.astro";
+import CSSIcon from "@/icons/CSS.astro";
+import HTMLIcon from "@/icons/HTML.astro";
+import XHTMLIcon from "@/icons/XHTML.astro";
+import SQLServerIcon from "@/icons/SQLServer.astro";
+import MySQLIcon from "@/icons/MySQL.astro";
+import AstroIcon from "@/icons/AstroIcon.astro";
+import GitHubIcon from "@/icons/GitHub.astro";
+import ReactIcon from "@/icons/React.astro";
+import NodeJsIcon from "@/icons/NodeJs.astro";
+import MongoDBIcon from "@/icons/MongoDB.astro";
+
+const TAGS = [
+  { name: "JSF", class: "bg-black text-white", icon: JSFIcon },
+  { name: "Java", class: "bg-black text-white", icon: JavaIcon },
+  { name: "HTML", class: "bg-black text-white", icon: HTMLIcon },
+  { name: "XHTML", class: "bg-black text-white", icon: XHTMLIcon },
+  { name: "CSS", class: "bg-black text-white", icon: CSSIcon },
+  { name: "JavaScript", class: "bg-black text-white", icon: JavaScriptIcon },
+  { name: "SQL Server", class: "bg-black text-white", icon: SQLServerIcon },
+  { name: "MySQL", class: "bg-black text-white", icon: MySQLIcon },
+  { name: "Astro", class: "bg-black text-white", icon: AstroIcon },
+  { name: "GitHub", class: "bg-black text-white", icon: GitHubIcon },
+  { name: "React", class: "bg-black text-white", icon: ReactIcon },
+  { name: "Node.Js", class: "bg-black text-white", icon: NodeJsIcon },
+  { name: "MongoDB", class: "bg-black text-white", icon: MongoDBIcon },
+];
 ---
 
-<Section title="Habilidades" >
-    
+<Section title="Habilidades">
+  <ul class="skills">
+    {
+      //Obtenemos las skills
+      skills.map(({ name, keywords }) => {
+        return (
+          <li class="skill">
+            <article>
+              <h4>{name}</h4>
+              <ul class="tecnologias">
+                {keywords.map((keyword) => {
+                  //creamos la tag de la skill
+                  var tag;
+                  //Buscamos la skill
+                  for (let TAG of TAGS) {
+                    if (TAG.name.toUpperCase() === keyword.toUpperCase()) {
+                      tag = TAG;
+                    }
+                  }
+                  return (
+                    <li class="tecnologia">
+                      {tag && <tag.icon class="size-5" />}
+                      <span style="margin-left: 5px;" >{keyword}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </article>
+          </li>
+        );
+      })
+    }
+  </ul>
 </Section>
+
+<style>
+  .skills {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: medium;
+    gap: 0.1rem 0.25rem;
+  }
+
+  .skill {
+    /*border: solid 1px #333;*/
+    padding: 0.1rem 0.25rem;
+    border-radius: 6px;
+    min-width: max-content;
+  }
+
+  .tecnologias {
+    display: contents;
+    font-size: smaller;
+    align-items: center;
+    max-width: max-content;
+  }
+
+  .tecnologia {
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 0.5rem;
+    color: #333;
+    font-size: small;
+    min-width: max-content;
+  }
+</style>

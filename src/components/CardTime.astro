@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  position: string;
+  description?: string;
+  startDate: string;
+  endDate?: string;
+  link?: string;
+  image?: string;
+}
+const { title, position, description, startDate, endDate, link, image } =
+  Astro.props;
+
+const startDate_short = startDate
+  ? new Date(startDate).toLocaleDateString("es-MX", {
+      month: "short",
+      year: "numeric",
+    })
+  : "No Info";
+const endDate_short = endDate
+  ? new Date(endDate).toLocaleDateString("es-MX", {
+      month: "short",
+      year: "numeric",
+    })
+  : "Actual";
+
+const date = startDate_short + " - " + endDate_short;
+---
+
+<article>
+  <header>
+    <div>
+      <h3>{title}</h3>
+      <h4>{position}</h4>
+    </div>
+    <time>
+      {date}
+    </time>
+  </header>
+  <footer>
+    <p>
+      {description}
+    </p>
+    {
+      link && (
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          Ver {title}
+        </a>
+      )
+    }
+    {
+      image && (
+        <img src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+      )
+    }
+  </footer>
+</article>
+<style>
+  article h3 {
+    color: #111;
+    font-weight: 400;
+  }
+  article h4 {
+    color: #222;
+    font-weight: 400;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    align-items: flex-start;
+  }
+
+  header time {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: capitalize;
+  }
+</style>

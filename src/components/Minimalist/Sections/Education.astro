@@ -1,7 +1,30 @@
 ---
-import Section from "../Section.astro";
+import Section from "@/components/minimalist/Section.astro";
+import { education } from "@cv";
+import CardTime from "@/components/CardTime.astro";
 ---
 
-<Section title="Educación" >
-    
+<Section title="Educación">
+  <ul>
+    {
+      education.map(({ institution, area, studyType, startDate, endDate }) => (
+        <li>
+          <CardTime
+            title={institution}
+            position={studyType}
+            description={area}
+            startDate={startDate}
+            endDate={endDate}
+          />
+        </li>
+      ))
+    }
+  </ul>
+  <style>
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  </style>
 </Section>

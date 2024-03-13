@@ -1,7 +1,32 @@
 ---
 import Section from "../Section.astro";
+import { work } from "@cv";
+import CardTime from "@/components/CardTime.astro";
 ---
 
-<Section title="Experiencia" >
-    
+<Section title="Experiencia">
+  <ul>
+    {
+      work.map(
+        ({ name, startDate, endDate, position, summary }) => (
+          <li>
+            <CardTime
+              title={name}
+              position={position}
+              startDate={startDate}
+              endDate={endDate ? endDate : undefined}
+              description={summary}
+            />
+          </li>
+        )
+      )
+    }
+  </ul>
 </Section>
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>

@@ -1,7 +1,43 @@
 ---
 import Section from "../Section.astro";
+
+import { projects } from "@cv";
+
+import LinkExtrernalIcon from "@/icons/Link-External.astro";
 ---
 
-<Section title="Proyectos" >
-    
+<Section title="Proyectos">
+  <ul>
+    {
+      projects.map(
+        ({ name, startDate, endDate, description, highlights, url, image }) => (
+          <li>
+            <article>
+              <header>
+                <div>
+                  <h3 class="flex gap-x-2 flex-row">
+                    <a href={url} target="_blank" style="color: #666;">
+                      <LinkExtrernalIcon class="size-5" />
+                    </a>
+                    {name}
+                  </h3>
+                  <p>{description}</p>
+                </div>
+              </header>
+              <ul class="flex gap-x-2 flex-row">
+                {highlights.map((highlight) => (
+                  <li />
+                ))}
+              </ul>
+            </article>
+          </li>
+        )
+      )
+    }
+  </ul>
 </Section>
+<style>
+    h3 {
+        align-items: center;
+    }
+</style>
