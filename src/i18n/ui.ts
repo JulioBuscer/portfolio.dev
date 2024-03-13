@@ -1,6 +1,10 @@
+
+import cv_es from '@/cv-es.json'
+import cv_en from '@/cv-en.json'
+
 export const languages = {
-    es: 'Español',
-    en: 'English'
+    es: 'Español ⚽',
+    en: 'English 🏈'
 }
 
 export const defaultLang = 'es'
@@ -13,6 +17,7 @@ export const ui = {
         'nav.about': 'Sobre mi',
         'nav.contact': 'Contacto',
         'nav.cv': 'CV Minimalista',
+        'cv': cv_es,
     },
     en: {
         'nav.home': 'Home',
@@ -21,5 +26,6 @@ export const ui = {
         'nav.about': 'About',
         'nav.contact': 'Contact',
         'nav.cv': 'CV Minimalist',
+        'cv': cv_en,
     }
 } as const

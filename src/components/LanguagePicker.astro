@@ -1,0 +1,16 @@
+---
+import { languages } from "@/i18n/ui";
+import { getLangFromUrl } from "@/i18n/utils";
+const language = getLangFromUrl(Astro.url);
+console.log(language);
+---
+
+<ul>
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <li>
+        <a href={`/${lang === "es" ? "" : lang + "/"}`}>{label}</a>
+      </li>
+    ))
+  }
+</ul>

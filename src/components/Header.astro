@@ -1,6 +1,8 @@
 ---
+import LanguagePicker from "@/components/LanguagePicker.astro";
+
 import {getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
-import { getRelativeLocaleUrl } from "astro:i18n";
+import {getRelativeLocaleUrl} from "astro:i18n";
 //const { currentLocale: lang } = Astro;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,5 +19,6 @@ const t = useTranslations(lang);
     <a href="#sobre-mi">{t('nav.about')}</a>
     <a href="#contacto">{t('nav.contact')}</a>
     <a href={getRelativeLocaleUrl(lang,'cv')}>{t('nav.cv')}</a>
+    <LanguagePicker/>
   </nav>
 </header>

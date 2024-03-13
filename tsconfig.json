@@ -9,6 +9,7 @@
       "@/*":[
         "src/*"
       ]
-    }
+    },
+    "moduleResolution": "Node"
   }
 }

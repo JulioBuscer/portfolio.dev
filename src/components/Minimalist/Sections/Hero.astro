@@ -7,6 +7,7 @@ import PhoneCall from "@/icons/PhoneCall.astro";
 import World from "@/icons/World.astro";
 //Obtendremos los datos del CV desde parametros enviados por el servidor
 const { basics } = Astro.props;
+console.log(basics);
 
 const { name, label, image, location, profiles, phone, email } = basics;
 const { city, region } = location;
