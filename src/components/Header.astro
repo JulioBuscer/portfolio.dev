@@ -1,9 +1,8 @@
 ---
 import LanguagePicker from "@/components/LanguagePicker.astro";
 
-import {getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
 import {getRelativeLocaleUrl} from "astro:i18n";
-//const { currentLocale: lang } = Astro;
+import {getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---

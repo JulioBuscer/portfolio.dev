@@ -1,21 +1,14 @@
 ---
 import Section from "@/components/Minimalist/Section.astro";
-import MailSend from "@/icons/MailSend.astro";
-import Github from "@/icons/Github.astro";
-import LinkedIn from "@/icons/LinkedIn.astro";
-import PhoneCall from "@/icons/PhoneCall.astro";
-import World from "@/icons/World.astro";
 //Obtendremos los datos del CV desde parametros enviados por el servidor
 const { basics } = Astro.props;
-console.log(basics);
+//console.log(basics);
 
 const { name, label, image, location, profiles, phone, email } = basics;
 const { city, region } = location;
 
-const SOCIAL_ICONS: Record<string, any> = {
-  Github,
-  LinkedIn,
-};
+import { ICONS } from "@/icons/icons.astro";
+const { Github, LinkedIn, MailSend, PhoneCall, World } = ICONS;
 ---
 
 <Section>
@@ -56,19 +49,29 @@ const SOCIAL_ICONS: Record<string, any> = {
           )
         }
         {
-          profiles.map(({ network, url, username }) => {
-            const Icon = SOCIAL_ICONS[network];
-            return (
-              <a
-                href={url}
-                title={`Ir a ${name} en ${network}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon />
-              </a>
-            );
-          })
+          profiles.map(
+            ({
+              network,
+              url,
+              username,
+            }: {
+              network: string;
+              url: string;
+              username: string;
+            }) => {
+              const Icon = ICONS[network];
+              return (
+                <a
+                  href={url}
+                  title={`Ir a ${name} en ${network}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {Icon ? <Icon /> : <World />}
+                </a>
+              );
+            }
+          )
         }
       </footer>
     </div>

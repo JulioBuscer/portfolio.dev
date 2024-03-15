@@ -1,16 +1,87 @@
 ---
 import { languages } from "@/i18n/ui";
 import { getLangFromUrl } from "@/i18n/utils";
+
 const language = getLangFromUrl(Astro.url);
+
+import { FLAG_LANGUAGES } from "@/icons/icons.astro";
+
+function getLangLabel(lang: keyof typeof languages) {
+  const lang_object = languages[lang];
+  if (!lang_object) return lang;
+  return lang_object;
+}
+
+const lang_object = getLangLabel(language);
+const lang_icon = FLAG_LANGUAGES[lang_object.code];
+
+console.log(lang_object);
+console.log(lang_icon);
+console.log(getLangLabel(language));
 console.log(language);
 ---
 
-<ul>
-  {
-    Object.entries(languages).map(([lang, label]) => (
-      <li>
-        <a href={`/${lang === "es" ? "" : lang + "/"}`}>{label}</a>
-      </li>
-    ))
+<div id="dropdown" class="dropdown">
+  <div style="display: flex; align-items: center">
+    <lang_icon class="size-5 mx-1"></lang_icon>
+
+    {
+      FLAG_LANGUAGES[lang_object.code] ? (
+        <FLAG_LANGUAGES[lang_object.code] class="size-5 mx-1" />
+      ) : (
+        <span>{lang_object.code}</span>
+      )
+    }
+
+    {lang_object.code}
+  </div>
+  <div id="dropdown-content" class="dropdown-content">
+    {
+      Object.entries(languages).map(([lang, { label, flag, code }]) => {
+        const Icon = FLAG_LANGUAGES[code];
+        return (
+          <a href={`/${lang === "es" ? "" : lang + "/"}`}>
+            <Icon class="size-5 mx-1"/>
+            {label}
+          </a>
+        );
+      })
+    }
+  </div>
+</div>
+
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    min-width: max-content;
   }
-</ul>
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: max-content;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 1);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a {
+    transition: all 0.5s;
+    color: #d8b4fee6;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: -webkit-box;
+  }
+
+  .dropdown-content a:hover {
+    transition: all 0.5s;
+    background-color: #d8b4fee6;
+    color: white;
+  }
+</style>

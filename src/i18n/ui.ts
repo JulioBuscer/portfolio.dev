@@ -2,9 +2,10 @@
 import cv_es from '@/cv-es.json'
 import cv_en from '@/cv-en.json'
 
+
 export const languages = {
-    es: 'Español ⚽',
-    en: 'English 🏈'
+    es: { code: 'ES', label: 'Español', flag: '🇪🇸' }, 
+    en: { code: 'EN', label: 'English', flag: '🇺🇸' }, 
 }
 
 export const defaultLang = 'es'
