@@ -1,10 +1,12 @@
 ---
 import LanguagePicker from "@/components/LanguagePicker.astro";
 
-import {getRelativeLocaleUrl} from "astro:i18n";
-import {getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const NAV = t("nav");
+const { home, experience, projects, about, contact, cv } = NAV;
 ---
 
 <header
@@ -12,12 +14,20 @@ const t = useTranslations(lang);
 >
   <span></span>
   <nav class="flex flex-row gap-x-10 opacity-90">
-    <a href="#top">{t('nav.home')}</a>
-    <a href="#experiencia">{t('nav.experience')}</a>
-    <a href="#proyectos">{t('nav.projects')}</a>
-    <a href="#sobre-mi">{t('nav.about')}</a>
-    <a href="#contacto">{t('nav.contact')}</a>
-    <a href={getRelativeLocaleUrl(lang,'cv')}>{t('nav.cv')}</a>
-    <LanguagePicker/>
+    <a href="#top">{home}</a>
+    <a href="#experiencia">{experience}</a>
+    <a href="#proyectos">{projects}</a>
+    <a href="#sobre-mi">{about}</a>
+    <a href="#contacto">{contact}</a>
+    <a href={getRelativeLocaleUrl(lang, "cv")}>{cv}</a>
+    <LanguagePicker />
   </nav>
 </header>
+<style>
+  nav a{
+    min-width: max-content;
+    width: 50px;
+    max-width: max-content;
+
+  }
+</style>

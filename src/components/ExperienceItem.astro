@@ -1,11 +1,30 @@
 ---
 interface Props {
-  title: string;
-  description: string;
+  name: string;
+  position: string;
+  summary?: string;
+  startDate: string;
+  endDate?: string;
   link?: string;
-  date: string;
+  image?: string;
 }
-const { title, description, link, date } = Astro.props;
+const { name, position, summary, startDate, endDate, link, image } =
+  Astro.props;
+
+const startDate_short = startDate
+  ? new Date(startDate).toLocaleDateString("es-MX", {
+      month: "short",
+      year: "numeric",
+    })
+  : "No Info";
+const endDate_short = endDate
+  ? new Date(endDate).toLocaleDateString("es-MX", {
+      month: "short",
+      year: "numeric",
+    })
+  : "Actual";
+
+const date = startDate_short + " - " + endDate_short;
 ---
 
 <li class="mb-10 ms-4">
@@ -13,15 +32,14 @@ const { title, description, link, date } = Astro.props;
     class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
   >
   </div>
-  <time
-    class="mb-1 text-sm font-normal leading-none text-purple-200/70"
+  <time class="mb-1 text-sm font-normal leading-none text-purple-200/70"
     >{date}</time
   >
   <h3 class="text-lg font-semibold text-purple-300">
-    {title}
+    {position} - {name}
   </h3>
   <p class="mb-4 text-base font-normal text-gray-200 text-pretty">
-    {description}
+    {summary}
   </p>
   {
     link && (

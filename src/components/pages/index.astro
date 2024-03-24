@@ -1,0 +1,110 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Badge from "@/components/Badge.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import Experience from "@/components/Experience.astro";
+import Container from "@/components/Container.astro";
+import Projects from "@/components/Projects.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const PAGE = t("page");
+const { title, description } = PAGE;
+const CV = t("cv");
+const { basics, skills, work, education, projects } = CV;
+const { name, label, image, location, profiles, phone, email } = basics;
+const { city, region } = location;
+
+import { ICONS } from "@/icons/icons.astro";
+const { Github, LinkedIn, Mail, PhoneCall, World, Code, Briefcase } = ICONS;
+
+const SECTIONS = t("section");
+const {
+  about: t_about,
+  skills: t_skills,
+  experience: t_experience,
+  education: t_education,
+  projects: t_projects,
+} = SECTIONS;
+---
+
+<Layout title={title} description={description}>
+  <main class="px-4">
+    <Container class="py-44 pb-30">
+      <img
+        class="rounded-full size-12 mb-4"
+        src="https://media.licdn.com/dms/image/D5603AQEo0AFz5bIYZA/profile-displayphoto-shrink_200_200/0/1705929035622?e=1711584000&v=beta&t=CfJykDcrsu6mHq7xNNHwgCnIFo7sNBCktWO7bmaX6gY"
+        alt="buscer"
+      />
+      <h1
+        class="dark:text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4"
+      >
+        Hola, soy Julio Buscer
+        <a
+          href="https://www.linkedin.com/in/juliobuscer/"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
+          <Badge>💼 Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2 class="text-2xl text-wrap max-w-[700]">
+        <span>+3 años de experiencia.</span>
+        <span class="text-purple-300/90">Desarrollador web.</span>
+        <span class="text-red-50 opacity-80">De México 🇲🇽.</span>
+        <span class="opacity-80"
+          >Especializado en desarrollar soluciones web</span
+        >
+      </h2>
+
+      <nav class="flex gap-x-2">
+        {
+          profiles.map(
+            ({
+              network,
+              url,
+              username,
+            }: {
+              network: string;
+              url: string;
+              username: string;
+            }) => {
+              const Icon = ICONS[network];
+              return (
+                <SocialPill href={url} title={`Ir a ${name} en ${network}`}>
+                  {Icon ? <Icon class="size-6" /> : <World class="size-6" />}
+                  {username}
+                </SocialPill>
+              );
+            }
+          )
+        }
+        {
+          email && (
+            <SocialPill
+              href={`mailto:${email}`}
+              title={`Enviar un correo electrónico a ${name} al correo ${email}`}
+            >
+              <Mail class="size-6" />
+              {email}
+            </SocialPill>
+          )
+        }
+      </nav>
+    </Container>
+    <Container id="experiencia">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-6" /> {t_experience}
+      </h2>
+      <Experience work={work} />
+    </Container>
+    <Container id="proyectos">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Code class="size-7" /> {t_projects}
+      </h2>
+      <Projects projects={projects} />
+    </Container>
+  </main>
+</Layout>

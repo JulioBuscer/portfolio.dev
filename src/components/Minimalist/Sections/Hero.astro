@@ -5,7 +5,7 @@ const { basics } = Astro.props;
 //console.log(basics);
 
 const { name, label, image, location, profiles, phone, email } = basics;
-const { city, region } = location;
+const { city, region, countryCode } = location;
 
 import { ICONS } from "@/icons/icons.astro";
 const { Github, LinkedIn, MailSend, PhoneCall, World } = ICONS;
@@ -21,7 +21,7 @@ const { Github, LinkedIn, MailSend, PhoneCall, World } = ICONS;
       <h2>{label}</h2>
       <span>
         <World />
-        {city}, {region}
+        {city}, {region}. {countryCode}
       </span>
       <footer>
         {

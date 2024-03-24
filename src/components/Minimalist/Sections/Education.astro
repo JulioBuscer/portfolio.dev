@@ -1,11 +1,11 @@
 ---
 import Section from "@/components/Minimalist/Section.astro";
 //import { education } from "@cv";
-const { education } = Astro.props;
+const { education ,title} = Astro.props;
 import CardTime from "@/components/CardTime.astro";
 ---
 
-<Section title="Educación">
+<Section title={title}>
   <ul>
     {
       education.map(

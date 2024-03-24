@@ -1,7 +1,8 @@
 ---
 import Section from "../Section.astro";
 //import { skills } from "@cv";
-const { skills } = Astro.props;
+const { skills, title } = Astro.props;
+const {frameworks, frontend, backend, database, devops, tools, others} = skills;
 
 import JSFIcon from "@/icons/JSF.astro";
 import JavaIcon from "@/icons/Java.astro";
@@ -34,7 +35,7 @@ const TAGS = [
 ];
 ---
 
-<Section title="Habilidades">
+<Section title={title}>
   <ul class="skills">
     {
       //Obtenemos las skills
@@ -56,7 +57,7 @@ const TAGS = [
                   return (
                     <li class="tecnologia">
                       {tag && <tag.icon class="size-5" />}
-                      <span style="margin-left: 5px;" >{keyword}</span>
+                      <span style="margin-left: 5px;">{keyword}</span>
                     </li>
                   );
                 })}

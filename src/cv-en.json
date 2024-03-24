@@ -6,7 +6,7 @@
         "email": "juliobuscer@gmail.com",
         "phone": "+52 (477) 704-6131",
         "url": "https://johndoe.com",
-        "summary": "+3 años de experiencia como desarrollador. Especializado en desarrollar soluciones web",
+        "summary": "+3 years of experience as a developer. Specialized in developing web solutions",
         "location": {
             "address": "N/A",
             "postalCode": "N/A",
@@ -30,31 +30,31 @@
     "work": [
         {
             "name": "CONGLOMERADO DE TECNOLOGÍAS AVANZADAS S.A. de C.V.",
-            "position": "Desarrollador FullStack",
+            "position": "FullStack developer",
             "url": "https://company.com",
             "startDate": "2023-06-01",
             "endDate": null,
-            "summary": "Desarrollo soluciones web aplicando Frontend y Backend",
+            "summary": "Development of web solutions using Frontend and Backend applications.",
             "highlights": [
                 "Se crea la subsidiaría de Novatec enfocada al desarrollo"
             ]
         },
         {
             "name": "Novatec Group",
-            "position": "Desarrollador FullStack",
+            "position": "FullStack developer",
             "url": "https://company.com",
             "startDate": "2022-01-01",
             "endDate": "2023-06-01",
-            "summary": "Desarrollo soluciones web aplicando Frontend y Backend",
+            "summary": "Development of web solutions using Frontend and Backend applications.",
             "highlights": []
         },
         {
             "name": "Novatec Group",
-            "position": "Practicante Desarrollador FullStack",
+            "position": "FullStack Developer Intern",
             "url": "https://company.com",
             "startDate": "2021-07-01",
             "endDate": "2022-01-01",
-            "summary": "Desarrollo soluciones web aplicando Frontend y Backend",
+            "summary": "Development of web solutions using Frontend and Backend applications.",
             "highlights": []
         }
     ],
@@ -75,8 +75,8 @@
         {
             "institution": "Universidad Tecnológica de León",
             "url": "https://www.utleon.edu.mx/",
-            "area": "Desarrollo y Gestión de Software.",
-            "studyType": "Ingeniería",
+            "area": "Software Development and Management.",
+            "studyType": "Engineer",
             "startDate": "2020-09-01",
             "endDate": "2022-08-01",
             "score": "9.0",
@@ -87,8 +87,8 @@
         {
             "institution": "Universidad Tecnológica de León",
             "url": "https://www.utleon.edu.mx/",
-            "area": "Desarrollo de Software Multiplataforma",
-            "studyType": "Técnico Superior Universitario",
+            "area": "Multiplatform Software Development",
+            "studyType": "Higher University Technician",
             "startDate": "2018-09-01",
             "endDate": "2020-08-30",
             "score": "4.0",
@@ -150,7 +150,7 @@
             ]
         },
         {
-            "name": "Bases de Datos",
+            "name": "Data Bases",
             "level": "Advanced",
             "keywords": [
                 "SQL Server",
@@ -196,14 +196,14 @@
             "name": "Offer Form",
             "startDate": "2022-01-01",
             "endDate": null,
-            "description": "Producto desarrollado para uso interno de la empresa Novatec, da solución a la estimación y seguimiento de proyectos ofertados a sus clientes. Cuenta con reportes que apoyan y agilizan la toma de decisiones",
+            "description": "Product developed for internal use of the company Novatec, provides a solution to the estimation and monitoring of projects offered to its customers. It has reports that support and speed up the decision making process.",
             "highlights": [
                 "JSF",
                 "XHTML",
                 "CSS",
                 "Java",
                 "JavaScript",
-                "SQL Server"
+                "SQLServer"
             ],
             "url": "http://20.101.137.14:8083/Offer/faces/index.xhtml",
             "image": "/projects/Project-OfferForm.webp"

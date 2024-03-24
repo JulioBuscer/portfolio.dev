@@ -4,8 +4,9 @@ import Section from "../Section.astro";
 //import { basics } from "@cv";
 const { basics } = Astro.props;
 const { summary} = basics;
+const {title} = Astro.props;
 ---
 
-<Section title="Acerca de mí" >
+<Section title={title} >
     <p>{summary}</p>
 </Section>

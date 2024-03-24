@@ -1,31 +1,12 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
 
-const EXPERIENCE = [
-  {
-    date: "Junio 2023 - Actualidad",
-    title: "Desarrollador FullStack - CONGLOMERADO DE TECNOLOGIAS AVANZADAS ",
-    description: "Desarrollo soluciones web aplicando Forntend y Backend",
-    link: "",
-  },
-  {
-    date: "Enero 2022 - Junio 2023",
-    title: "Desarrollador FullStack - Novatec Group",
-    description: "Desarrollo soluciones web aplicando Forntend y Backend",
-    link: "",
-  },
-  {
-    date: "Julio 2021 - Enero 2022",
-    title: "Practicante Desarrollador FullStack - Novatec Group",
-    description: "Desarrollo soluciones web aplicando Forntend y Backend",
-    link: "",
-  },
-];
+const { work } = Astro.props;
 ---
 
 <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-2.5">
   {
-    EXPERIENCE.map((experience) => (
+    work.map((experience) => (
       <li class="mb-10 ms-4">
         <ExperienceItem {...experience} />
       </li>

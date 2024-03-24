@@ -2,12 +2,12 @@
 import Section from "../Section.astro";
 
 //import { projects } from "@cv";
-const {projects} = Astro.props;
+const {projects,title} = Astro.props;
 
 import LinkExtrernalIcon from "@/icons/Link-External.astro";
 ---
 
-<Section title="Proyectos">
+<Section title={title}>
   <ul>
     {
       projects.map(
