@@ -1,3 +1,13 @@
+export interface Projects {
+  name: string;
+  startDate: string;
+  endDate: string | null;
+  description: string;
+  highlights: string[];
+  url: string;
+  image: string;
+}
+
 export interface CvData {
   basics: {
     name: string;
@@ -84,13 +94,5 @@ export interface CvData {
     name: string;
     reference: string;
   }[];
-  projects: {
-    name: string;
-    startDate: string;
-    endDate: string | null;
-    description: string;
-    highlights: string[];
-    url: string;
-    image: string;
-  }[];
+  projects: Projects[];
 };

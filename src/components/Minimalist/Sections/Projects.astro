@@ -2,7 +2,10 @@
 import Section from "../Section.astro";
 
 //import { projects } from "@cv";
-const {projects,title} = Astro.props;
+
+import type { CvData } from "@/interfaces/CvData.ts";
+const { title } = Astro.props;
+const { projects } = Astro.props as CvData;
 
 import LinkExtrernalIcon from "@/icons/Link-External.astro";
 ---
@@ -11,9 +14,9 @@ import LinkExtrernalIcon from "@/icons/Link-External.astro";
   <ul>
     {
       projects.map(
-        ({ name, startDate, endDate, description, highlights, url, image }) => (
+        ({ name,description,url}) => (
           <li>
-            <article>
+            <>
               <header>
                 <div>
                   <h3 class="flex gap-x-2 flex-row">
@@ -25,12 +28,14 @@ import LinkExtrernalIcon from "@/icons/Link-External.astro";
                   <p>{description}</p>
                 </div>
               </header>
-              <ul class="flex gap-x-2 flex-row">
-                {highlights.map((highlight) => (
+              
+              <!--ul class="flex gap-x-2 flex-row"-->
+                {/*highlights.map((highlight) => (
                   <li />
-                ))}
-              </ul>
-            </article>
+                ))*/}
+              <!--/ul-->
+              
+            </>
           </li>
         )
       )
@@ -38,7 +43,7 @@ import LinkExtrernalIcon from "@/icons/Link-External.astro";
   </ul>
 </Section>
 <style>
-    h3 {
-        align-items: center;
-    }
+  h3 {
+    align-items: center;
+  }
 </style>

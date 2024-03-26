@@ -1,7 +1,9 @@
 ---
 import Section from "../Section.astro";
 //import { work } from "@cv";
-const { work, title } = Astro.props;
+const { title } = Astro.props;
+import type { CvData } from "@/interfaces/CvData.ts";
+const { work } = Astro.props as CvData;
 import CardTime from "@/components/CardTime.astro";
 ---
 

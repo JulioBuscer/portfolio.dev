@@ -13,20 +13,20 @@ import type { Section, Page } from "@/interfaces/PageData.ts";
 import type { CvData } from "@/interfaces/CvData";
 const { title, description }: Page = t("page") as Page;
 
-const { basics, skills, work, education, projects }: CvData = t("cv") as CvData;
-const { name, label, image, location, profiles, phone, email } = basics;
-const { city, region } = location;
+const { basics, work, projects }: CvData = t("cv") as CvData;
+const { name, profiles, email } = basics;
+//const { city, region } = location;
 
 import { ICONS } from "@/icons/icons.astro";
-const { Github, LinkedIn, Mail, PhoneCall, World, Code, Briefcase } = ICONS;
+const { Mail, World, Code, Briefcase } = ICONS;
 
 const SECTIONS = t("section") as Section;
 const {
-  about: t_about,
-  skills: t_skills,
+  //about: t_about,
+  //skills: t_skills,
   experience: t_experience,
   projects: t_projects,
-  education: t_education,
+  //education: t_education,
 } = SECTIONS;
 ---
 

@@ -14,7 +14,7 @@ function getLangLabel(lang: keyof typeof languages) {
 
 const lang_object = getLangLabel(language);
 import type {Languages} from "../i18n/ui";
-const { code, label, flag } = lang_object as Languages;
+const { code, flag } = lang_object as Languages;
 const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
 
 //console.log(lang_object);
@@ -36,7 +36,7 @@ const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
   </div>
   <div id="dropdown-content" class="dropdown-content">
     {
-      Object.entries(languages).map(([lang, { label, flag, code }]) => {
+      Object.entries(languages).map(([lang, { label, code }]) => {
         const Icon = FLAG_LANGUAGES[code];
         return (
           <a href={`/${lang === "es" ? "" : lang + "/"}`}>

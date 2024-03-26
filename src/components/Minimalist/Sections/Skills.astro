@@ -1,8 +1,11 @@
 ---
 import Section from "../Section.astro";
 //import { skills } from "@cv";
-const { skills, title } = Astro.props;
-const {frameworks, frontend, backend, database, devops, tools, others} = skills;
+const { title } = Astro.props;
+
+import type { CvData } from "@/interfaces/CvData.ts";
+const { skills } = Astro.props as CvData;
+
 
 import JSFIcon from "@/icons/JSF.astro";
 import JavaIcon from "@/icons/Java.astro";
