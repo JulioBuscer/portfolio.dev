@@ -8,14 +8,19 @@ import Hero from "@/components/Minimalist/Sections/Hero.astro";
 import Projects from "@/components/Minimalist/Sections/Projects.astro";
 import Skills from "@/components/Minimalist/Sections/Skills.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
-
 import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+import type { CvData } from "@/interfaces/CvData";
+import type { Section, Page } from "@/interfaces/PageData";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
 const CV = t("cv");
-const { basics, skills, work, education, projects } = CV;
+const { basics, skills, work, education, projects } = CV as CvData;
+
 const PAGE = t("page");
-const { title, description } = PAGE;
+const { title, description } = PAGE as Page;
+
 const SECTIONS = t("section");
 const {
   about: t_about,
@@ -23,7 +28,7 @@ const {
   experience: t_experience,
   education: t_education,
   projects: t_projects,
-} = SECTIONS;
+} = SECTIONS as Section;
 ---
 
 <MinimalistLayout title={title} description={description}>

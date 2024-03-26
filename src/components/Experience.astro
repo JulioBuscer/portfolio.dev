@@ -1,7 +1,16 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
-
-const { work } = Astro.props;
+// Define the type for the work array
+type WorkType = {
+  name: string;
+  position: string;
+  summary?: string;
+  startDate: string;
+  endDate?: string;
+  link?: string;
+  image?: string;
+};
+const { work } = Astro.props as { work: WorkType[] };
 ---
 
 <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-2.5">

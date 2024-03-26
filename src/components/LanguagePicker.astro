@@ -13,27 +13,26 @@ function getLangLabel(lang: keyof typeof languages) {
 }
 
 const lang_object = getLangLabel(language);
-const lang_icon = FLAG_LANGUAGES[lang_object.code];
+import type {Languages} from "../i18n/ui";
+const { code, label, flag } = lang_object as Languages;
+const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
 
-console.log(lang_object);
-console.log(lang_icon);
-console.log(getLangLabel(language));
-console.log(language);
+//console.log(lang_object);
+//console.log(LANG_ICON_FLAG);
+//console.log(getLangLabel(language));
+//console.log(language);
 ---
 
 <div id="dropdown" class="dropdown">
   <div style="display: flex; align-items: center">
-    <lang_icon class="size-5 mx-1"></lang_icon>
+    {LANG_ICON_FLAG ? (
+      <LANG_ICON_FLAG class="size-5 mx-1" />
+    ) : (
+      <span>{flag}</span>
+    )}
 
-    {
-      FLAG_LANGUAGES[lang_object.code] ? (
-        <FLAG_LANGUAGES[lang_object.code] class="size-5 mx-1" />
-      ) : (
-        <span>{lang_object.code}</span>
-      )
-    }
 
-    {lang_object.code}
+    {code}
   </div>
   <div id="dropdown-content" class="dropdown-content">
     {

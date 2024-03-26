@@ -1,3 +1,5 @@
+import type { CvData } from './interfaces/CvData.ts';
+export const cv: CvData =
 {
     "basics": {
         "name": "Julio Bustamante",

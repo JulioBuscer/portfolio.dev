@@ -1,12 +1,17 @@
 ---
 import LanguagePicker from "@/components/LanguagePicker.astro";
 
-import { getRelativeLocaleUrl } from "astro:i18n";
+//import { getRelativeLocaleUrl } from "astro:i18n";
+
 import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const NAV = t("nav");
+import type { Nav } from "@/interfaces/PageData.ts";
+
+const NAV = t("nav") as Nav;
 const { home, experience, projects, about, contact, cv } = NAV;
+
+//const aboutURL = getRelativeLocaleUrl(lang, "cv");
 ---
 
 <header
@@ -19,15 +24,14 @@ const { home, experience, projects, about, contact, cv } = NAV;
     <a href="#proyectos">{projects}</a>
     <a href="#sobre-mi">{about}</a>
     <a href="#contacto">{contact}</a>
-    <a href={getRelativeLocaleUrl(lang, "cv")}>{cv}</a>
+    <a href={lang + "/cv"}>{cv}</a>
     <LanguagePicker />
   </nav>
 </header>
 <style>
-  nav a{
+  nav a {
     min-width: max-content;
     width: 50px;
     max-width: max-content;
-
   }
 </style>

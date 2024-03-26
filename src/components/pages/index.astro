@@ -9,23 +9,24 @@ import Projects from "@/components/Projects.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const PAGE = t("page");
-const { title, description } = PAGE;
-const CV = t("cv");
-const { basics, skills, work, education, projects } = CV;
+import type { Section, Page } from "@/interfaces/PageData.ts";
+import type { CvData } from "@/interfaces/CvData";
+const { title, description }: Page = t("page") as Page;
+
+const { basics, skills, work, education, projects }: CvData = t("cv") as CvData;
 const { name, label, image, location, profiles, phone, email } = basics;
 const { city, region } = location;
 
 import { ICONS } from "@/icons/icons.astro";
 const { Github, LinkedIn, Mail, PhoneCall, World, Code, Briefcase } = ICONS;
 
-const SECTIONS = t("section");
+const SECTIONS = t("section") as Section;
 const {
   about: t_about,
   skills: t_skills,
   experience: t_experience,
-  education: t_education,
   projects: t_projects,
+  education: t_education,
 } = SECTIONS;
 ---
 
@@ -96,13 +97,15 @@ const {
     </Container>
     <Container id="experiencia">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <Briefcase class="size-6" /> {t_experience}
+        <Briefcase class="size-6" />
+        {t_experience}
       </h2>
       <Experience work={work} />
     </Container>
     <Container id="proyectos">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <Code class="size-7" /> {t_projects}
+        <Code class="size-7" />
+        {t_projects}
       </h2>
       <Projects projects={projects} />
     </Container>
