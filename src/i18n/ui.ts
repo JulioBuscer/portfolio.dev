@@ -1,6 +1,6 @@
 
-import { cv as cv_es } from '@/cv-es'
-import { cv as cv_en } from '@/cv-en'
+import { cv as cv_es } from '@/traductions/cv/es'
+import { cv as cv_en } from '@/traductions/cv/en'
 
 export type Languages = {
     code: string
@@ -24,14 +24,14 @@ export const ui: PageData = {
             'title': 'Julio Bustamante',
             'description': 'Contrata a Buscer para crear tu aplicación web. Desarrollador Web. Especializado en desarrollar soluciones web.',
             'saludo': {
-                'hello': ' Hola, soy [name]',
+                'hello': ' Hola, soy Julio Buscer',
                 'openToWork': {
                     'available': true,
-                    'label': 'Disponible para trabajar',
+                    'label': '💼 Disponible para trabajar',
                 },
-                'experience': '+[years] años de experiencia',
+                'experience': 'años de experiencia',
                 'rol': 'Desarrollador web.',
-                'from': 'de [country]',
+                'from': 'de',
                 'summary': 'Especializado en desarrollar soluciones web',
             },
         },
@@ -59,15 +59,15 @@ export const ui: PageData = {
             'title': 'Julio Bustamante',
             'description': 'Contract Buscer to create your web application. Web Developer. Specialized in web application development.',
             'saludo': {
-                'hello': ' Hola, soy [name]',
+                'hello': 'Hi I´m Julio Buscer',
                 'openToWork': {
                     'available': true,
-                    'label': 'Disponible para trabajar',
+                    'label': '💼 Open To Work',
                 },
-                'experience': '+[years] años de experiencia',
-                'rol': 'Desarrollador web.',
-                'from': 'de [country]',
-                'summary': 'Especializado en desarrollar soluciones web',
+                'experience': 'years of experience',
+                'rol': 'Developer web.',
+                'from': 'from',
+                'summary': 'Specialized in developing web solutions',
             },
         },
         'nav': {

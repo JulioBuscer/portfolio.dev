@@ -21,6 +21,7 @@ export interface CvData {
       address: string;
       postalCode: string;
       city: string;
+      country: string;
       countryCode: string;
       region: string;
     };

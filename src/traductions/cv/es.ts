@@ -1,17 +1,19 @@
-import type { CvData } from './interfaces/CvData.ts';
-export const cv: CvData = {
+import type { CvData } from '../../interfaces/CvData.ts';
+export const cv: CvData =
+{
     "basics": {
         "name": "Julio Bustamante",
-        "label": "Programmer & Develper Web",
-        "image": "https://media.licdn.com/dms/image/D5603AQEo0AFz5bIYZA/profile-displayphoto-shrink_200_200/0/1705929035622?e=1711584000&v=beta&t=CfJykDcrsu6mHq7xNNHwgCnIFo7sNBCktWO7bmaX6gY",
+        "label": "Programador y Desarrollador Web",
+        "image": "https://media.licdn.com/dms/image/D5603AQEo0AFz5bIYZA/profile-displayphoto-shrink_800_800/0/1705929035623?e=1718236800&v=beta&t=D4pFn6AawcQ5207uK-FxBR5NgEJ6PgklASND48csuBc",
         "email": "juliobuscer@gmail.com",
         "phone": "+52 (477) 704-6131",
         "url": "https://johndoe.com",
-        "summary": "+3 years of experience as a developer. Specialized in developing web solutions",
+        "summary": "años de experiencia como desarrollador. Especializado en desarrollar soluciones web",
         "location": {
             "address": "N/A",
             "postalCode": "N/A",
             "city": "León",
+            "country": "México",
             "countryCode": "MX",
             "region": "Guanajuato"
         },
@@ -31,31 +33,31 @@ export const cv: CvData = {
     "work": [
         {
             "name": "CONGLOMERADO DE TECNOLOGÍAS AVANZADAS S.A. de C.V.",
-            "position": "FullStack developer",
+            "position": "Desarrollador FullStack",
             "url": "https://company.com",
             "startDate": "2023-06-01",
             "endDate": null,
-            "summary": "Development of web solutions using Frontend and Backend applications.",
+            "summary": "Desarrollo soluciones web aplicando Frontend y Backend",
             "highlights": [
                 "Se crea la subsidiaría de Novatec enfocada al desarrollo"
             ]
         },
         {
             "name": "Novatec Group",
-            "position": "FullStack developer",
+            "position": "Desarrollador FullStack",
             "url": "https://company.com",
             "startDate": "2022-01-01",
             "endDate": "2023-06-01",
-            "summary": "Development of web solutions using Frontend and Backend applications.",
+            "summary": "Desarrollo soluciones web aplicando Frontend y Backend",
             "highlights": []
         },
         {
             "name": "Novatec Group",
-            "position": "FullStack Developer Intern",
+            "position": "Practicante Desarrollador FullStack",
             "url": "https://company.com",
             "startDate": "2021-07-01",
             "endDate": "2022-01-01",
-            "summary": "Development of web solutions using Frontend and Backend applications.",
+            "summary": "Desarrollo soluciones web aplicando Frontend y Backend",
             "highlights": []
         }
     ],
@@ -76,8 +78,8 @@ export const cv: CvData = {
         {
             "institution": "Universidad Tecnológica de León",
             "url": "https://www.utleon.edu.mx/",
-            "area": "Software Development and Management.",
-            "studyType": "Engineer",
+            "area": "Desarrollo y Gestión de Software.",
+            "studyType": "Ingeniería",
             "startDate": "2020-09-01",
             "endDate": "2022-08-01",
             "score": "9.0",
@@ -88,8 +90,8 @@ export const cv: CvData = {
         {
             "institution": "Universidad Tecnológica de León",
             "url": "https://www.utleon.edu.mx/",
-            "area": "Multiplatform Software Development",
-            "studyType": "Higher University Technician",
+            "area": "Desarrollo de Software Multiplataforma",
+            "studyType": "Técnico Superior Universitario",
             "startDate": "2018-09-01",
             "endDate": "2020-08-30",
             "score": "4.0",
@@ -151,7 +153,7 @@ export const cv: CvData = {
             ]
         },
         {
-            "name": "Data Bases",
+            "name": "Bases de Datos",
             "level": "Advanced",
             "keywords": [
                 "SQL Server",
@@ -197,14 +199,14 @@ export const cv: CvData = {
             "name": "Offer Form",
             "startDate": "2022-01-01",
             "endDate": null,
-            "description": "Product developed for internal use of the company Novatec, provides a solution to the estimation and monitoring of projects offered to its customers. It has reports that support and speed up the decision making process.",
+            "description": "Producto desarrollado para uso interno de la empresa Novatec, da solución a la estimación y seguimiento de proyectos ofertados a sus clientes. Cuenta con reportes que apoyan y agilizan la toma de decisiones",
             "highlights": [
                 "JSF",
                 "XHTML",
                 "CSS",
                 "Java",
                 "JavaScript",
-                "SQLServer"
+                "SQL Server"
             ],
             "url": "http://20.101.137.14:8083/Offer/faces/index.xhtml",
             "image": "/projects/Project-OfferForm.webp"

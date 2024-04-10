@@ -2,11 +2,14 @@
 import Section from "../Section.astro";
 
 //import { basics } from "@cv";
-const { basics } = Astro.props;
-const { summary} = basics;
-const {title} = Astro.props;
+const { experienceYears, basics } = Astro.props;
+const { summary } = basics;
+const { title } = Astro.props;
 ---
 
-<Section title={title} >
-    <p>{summary}</p>
+<Section title={title}>
+  <p>
+    +{experienceYears}
+    {summary}
+  </p>
 </Section>

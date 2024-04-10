@@ -29,13 +29,21 @@ const {
   education: t_education,
   projects: t_projects,
 } = SECTIONS as Section;
+
+
+const currentYear = new Date().getFullYear();
+const startYear = work?.[work.length - 1]?.startDate
+  ? new Date(work[work.length - 1].startDate).getFullYear()
+  : currentYear;
+
+  const experienceYears = currentYear - startYear;
 ---
 
 <MinimalistLayout title={title} description={description}>
   <main>
     <Hero basics={basics} />
-    <About basics={basics} title={t_about} />
-    <Skills skills={skills} title={t_skills} />
+    <About basics={basics} title={t_about} experienceYears={experienceYears} />
+    <Skills skills={skills} title={t_skills}  />
     <Experience work={work} title={t_experience} />
     <Education education={education} title={t_education} />
     <Projects projects={projects} title={t_projects} />
