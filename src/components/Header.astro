@@ -11,7 +11,7 @@ import type { Nav } from "@/interfaces/PageData.ts";
 const NAV = t("nav") as Nav;
 const { home, experience, projects, about, contact, cv } = NAV;
 
-//const aboutURL = getRelativeLocaleUrl(lang, "cv");
+const CV_URL = lang == "es" ? "/cv" : lang + "/cv";
 ---
 
 <header
@@ -24,10 +24,7 @@ const { home, experience, projects, about, contact, cv } = NAV;
     <a href="#proyectos">{projects}</a>
     <a href="#sobre-mi">{about}</a>
     <a href="#contacto">{contact}</a>
-    <a href={
-    //En produccion ocurre un bug al hacer el href la url no la limpia si no la concatena
-    //(lang == "es" ? "" : lang) + 
-    "/cv"}>{cv}</a>
+    <a href={CV_URL}>{cv}</a>
     <LanguagePicker />
   </nav>
 </header>
