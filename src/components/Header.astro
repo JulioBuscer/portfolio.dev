@@ -24,7 +24,10 @@ const { home, experience, projects, about, contact, cv } = NAV;
     <a href="#proyectos">{projects}</a>
     <a href="#sobre-mi">{about}</a>
     <a href="#contacto">{contact}</a>
-    <a href={(lang == "es" ? "" : lang) + "/cv"}>{(lang == "es" ? "" : lang) + "/cv"}{cv}</a>
+    <a href={
+    //En produccion ocurre un bug al hacer el href la url no la limpia si no la concatena
+    //(lang == "es" ? "" : lang) + 
+    "/cv"}>{cv}</a>
     <LanguagePicker />
   </nav>
 </header>
