@@ -43,7 +43,8 @@ export const ui: PageData = {
             'projects': 'Proyectos',
             'contact': 'Contacto',
             'education': 'Educación',
-            'cv': 'CV',
+            'cv': 'Formato CV',
+            'portfolio': 'Porfolio',
         },
         'section': {
             'about': 'Sobre mi',
@@ -78,7 +79,8 @@ export const ui: PageData = {
             'projects': 'Projects',
             'contact': 'Contact',
             'education': 'Education',
-            'cv': 'CV',
+            'cv': 'CV Format',
+            'portfolio': 'Portfolio',
         },
         'section': {
             'about': 'About me',

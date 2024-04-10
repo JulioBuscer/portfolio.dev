@@ -21,6 +21,7 @@ export type Nav = {
     contact: string;
     education: string;
     cv: string;
+    portfolio: string;
 }
 
 export type Section = {

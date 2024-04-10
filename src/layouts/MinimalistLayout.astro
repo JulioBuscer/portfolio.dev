@@ -1,9 +1,20 @@
 ---
+import LanguagePicker from "@/components/LanguagePicker.astro";
 import "@fontsource-variable/onest";
 interface Props {
   title: string;
   description: string;
 }
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import type { Nav } from "@/interfaces/PageData.ts";
+
+const NAV = t("nav") as Nav;
+const { portfolio } = NAV;
+
+const portfolio_URL = lang == "es" ? "/" : "/" + lang + "/";
 
 const { description, title } = Astro.props;
 const { currentLocale } = Astro;
@@ -20,9 +31,19 @@ const { currentLocale } = Astro;
     <title>{title}</title>
   </head>
   <body>
+    <nav class="flex flex-row gap-x-10 opacity-90 py-5">
+      <a href={portfolio_URL}>{portfolio}</a>
+      <LanguagePicker />
+    </nav>
     <slot />
   </body>
 </html>
+
+<style>
+  nav {
+    justify-content: space-around;
+  }
+</style>
 
 <style is:global>
   html {

@@ -13,7 +13,7 @@ function getLangLabel(lang: keyof typeof languages) {
 }
 
 const lang_object = getLangLabel(language);
-import type {Languages} from "../i18n/ui";
+import type { Languages } from "../i18n/ui";
 const { code, flag } = lang_object as Languages;
 const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
 
@@ -25,12 +25,13 @@ const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
 
 <div id="dropdown" class="dropdown">
   <div style="display: flex; align-items: center">
-    {LANG_ICON_FLAG ? (
-      <LANG_ICON_FLAG class="size-5 mx-1" />
-    ) : (
-      <span>{flag}</span>
-    )}
-
+    {
+      LANG_ICON_FLAG ? (
+        <LANG_ICON_FLAG class="size-5 mx-1" />
+      ) : (
+        <span>{flag}</span>
+      )
+    }
 
     {code}
   </div>
@@ -38,10 +39,16 @@ const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
     {
       Object.entries(languages).map(([lang, { label, code }]) => {
         const Icon = FLAG_LANGUAGES[code];
+        var pathURL = Astro.url.pathname;
+        pathURL = pathURL.replace(`/${language}/`, "/");
+        const URL = `${lang === "es" ? pathURL : "/" + lang + pathURL}`;
         return (
-          <a href={`/${lang === "es" ? "" : lang + "/"}`}>
-            <Icon class="size-5 mx-1"/>
-            {label}
+          <a href={URL}>
+            <Icon class="size-5 mx-1" />
+            {code}
+            {
+              //label
+            }
           </a>
         );
       })

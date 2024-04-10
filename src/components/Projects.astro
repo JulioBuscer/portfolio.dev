@@ -9,7 +9,7 @@ const { projects } = Astro.props as CvData;
     <article>
       <h3>{name}</h3>
       <p>{description}</p>
-      <ul class="flex gap-x-2 flex-row">
+      <ul class=" gap-x-2">
         {highlights.map((tag) => {
           const Icon = ICONS[tag];
           return (
@@ -26,6 +26,9 @@ const { projects } = Astro.props as CvData;
 }
 
 <style>
+  article ul {
+    display: ruby;
+  }
   article ul li {
     display: inline-flex;
     margin: 0.5rem;
