@@ -12,24 +12,32 @@ const NAV = t("nav") as Nav;
 const { home, experience, projects, about, contact, cv } = NAV;
 
 const CV_URL = lang == "es" ? "/cv" : "/" + lang + "/cv";
-
 ---
 
 <header
-  class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto"
+  class="flex justify-center items-center py-1 w-full xl:w-[1120px] mx-auto"
 >
   <span></span>
   <nav class="flex flex-row gap-x-10 opacity-90">
-    <a href="#top">{home}</a>
+    <a href="#top">{contact}{/*home*/}</a>
     <a href="#experiencia">{experience}</a>
     <a href="#proyectos">{projects}</a>
-    <a href="#sobre-mi">{about}</a>
-    <a href="#contacto">{contact}</a>
+    <a href="#sobre-mi" style="display: none;">{about}</a>
+    <a href="#contacto" style="display: none;">{contact}</a>
     <a href={CV_URL}>{cv}</a>
     <LanguagePicker />
   </nav>
 </header>
 <style>
+  header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: black;
+  }
+  nav {
+    justify-content: space-around;
+  }
   nav a {
     min-width: max-content;
     width: 50px;

@@ -1,3 +1,13 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import type { Nav } from "@/interfaces/PageData.ts";
+
+const NAV = t("nav") as Nav;
+const { home, experience, projects, about, contact, cv } = NAV;
+---
+
 <footer
   class="bg-white shadow mt-4 dark:bg-black backdrop-blur-lg w-full xl:w-[1120px] mx-auto"
 >
@@ -12,10 +22,10 @@
       class="flex flex-wrap items-center mt-3 text-sm font-medium text-purple-500/90 dark:text-purple-300/90 sm:mt-0"
     >
       <li>
-        <a href="#sobre-mi" class="hover:underline me-4 md:me-6">Sorbe mí</a>
+        <a href="#top" class="hover:underline me-4 md:me-6">{about}</a>
       </li>
       <li>
-        <a href="#contacto" class="hover:underline">Contacto</a>
+        <a href="#top" class="hover:underline">{contact}</a>
       </li>
     </ul>
   </div>
