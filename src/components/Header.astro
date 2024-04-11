@@ -19,15 +19,15 @@ import MENU from "@/icons/menu.astro";
 <header class="flex justify-center py-1 w-full xl:w-[1120px] mx-auto">
   <span></span>
   <nav class="flex flex-row opacity-90">
-    <div class="hamburger">
+    <div class="hamburger mx-2">
       <MENU class="menu size-8" />
       <div class="nav-links">
-        <a href="#top">{contact}{/*home*/}</a>
-        <a href="#experiencia">{experience}</a>
-        <a href="#proyectos">{projects}</a>
-        <a href="#sobre-mi" style="display: none;">{about}</a>
-        <a href="#contacto" style="display: none;">{contact}</a>
-        <a href={CV_URL}>{cv}</a>
+        <a class="link" href="#top">{contact}{/*home*/}</a>
+        <a class="link" href="#experiencia">{experience}</a>
+        <a class="link" href="#proyectos">{projects}</a>
+        <a class="link" href="#sobre-mi" style="display: none;">{about}</a>
+        <a class="link" href="#contacto" style="display: none;">{contact}</a>
+        <a class="link" href={CV_URL}>{cv}</a>
       </div>
     </div>
     <div style="display: grid; align-items: center">
@@ -39,6 +39,13 @@ import MENU from "@/icons/menu.astro";
 <script>
   document.querySelector(".menu")?.addEventListener("click", () => {
     document.querySelector(".nav-links")?.classList.toggle("expanded");
+  });
+
+  document.querySelectorAll(".link").forEach((link) => {
+    link.addEventListener("click", () => {
+      console.log("click");
+      document.querySelector(".nav-links")?.classList.toggle("expanded");
+    });
   });
 </script>
 
@@ -52,7 +59,10 @@ import MENU from "@/icons/menu.astro";
     transition: all 0.5s;
     background-color: #d8b4fee6;
     color: white;
+    border-radius: 5px;
   }
+
+  
 
   .expanded {
     display: unset !important;
@@ -75,7 +85,6 @@ import MENU from "@/icons/menu.astro";
 
   .hamburger {
     display: block;
-    padding-right: 20px;
     cursor: pointer;
   }
   .menu {
@@ -94,8 +103,7 @@ import MENU from "@/icons/menu.astro";
 
     .nav-links a {
       display: inline-block;
-      padding: 0.5rem;
-      width: 50px;
+      padding: 0.1rem 0.5rem;
       min-width: max-content;
       max-width: max-content;
       background: none;
@@ -119,5 +127,6 @@ import MENU from "@/icons/menu.astro";
     min-height: 40px;
     max-height: 40px;
     font-size: large;
+    opacity: 0.9;
   }
 </style>

@@ -24,7 +24,7 @@ const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
 ---
 
 <div id="dropdown" class="dropdown">
-  <div style="display: flex; align-items: center">
+  <div style="display: flex; align-items: center" class=" px-2 py-1">
     {
       LANG_ICON_FLAG ? (
         <LANG_ICON_FLAG class="size-5 mx-1" />
@@ -56,11 +56,26 @@ const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
   </div>
 </div>
 
+<script>
+  document.querySelector(".dropdown")?.addEventListener("click", () => {
+    document.querySelector(".dropdown-content")?.classList.toggle("expanded");
+  });
+</script>
+
 <style>
   .dropdown {
     position: relative;
-    display: inline-block;
+    display: block;
     min-width: max-content;
+    cursor: pointer;
+    height: 2rem;
+    min-width: min-content;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .expanded {
+    display: unset !important;
   }
 
   .dropdown-content {
@@ -72,11 +87,17 @@ const LANG_ICON_FLAG = FLAG_LANGUAGES[code];
     border-radius: 5px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 1);
   }
-
+  .dropdown:hover {
+    transition: all 0.5s;
+    background-color: #d8b4fee6;
+    color: white;
+    border-radius: 5px;
+  }
+  /*
   .dropdown:hover .dropdown-content {
     display: block;
   }
-
+  */
   .dropdown-content a {
     transition: all 0.5s;
     color: #d8b4fee6;

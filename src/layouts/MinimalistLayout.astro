@@ -32,7 +32,9 @@ const { currentLocale } = Astro;
   </head>
   <body>
     <nav class="flex flex-row gap-x-10 opacity-90 py-5">
-      <a href={portfolio_URL}>{portfolio}</a>
+      <a class="px-2 flex justify-center items-center" href={portfolio_URL}
+        >{portfolio}</a
+      >
       <LanguagePicker />
     </nav>
     <slot />
@@ -42,6 +44,13 @@ const { currentLocale } = Astro;
 <style>
   nav {
     justify-content: space-around;
+  }
+
+  a:hover {
+    transition: all 0.5s;
+    background-color: #d8b4fee6;
+    color: white;
+    border-radius: 5px;
   }
 </style>
 
