@@ -12,35 +12,112 @@ const NAV = t("nav") as Nav;
 const { home, experience, projects, about, contact, cv } = NAV;
 
 const CV_URL = lang == "es" ? "/cv" : "/" + lang + "/cv";
+
+import MENU from "@/icons/menu.astro";
 ---
 
-<header
-  class="flex justify-center items-center py-1 w-full xl:w-[1120px] mx-auto"
->
+<header class="flex justify-center py-1 w-full xl:w-[1120px] mx-auto">
   <span></span>
-  <nav class="flex flex-row gap-x-10 opacity-90">
-    <a href="#top">{contact}{/*home*/}</a>
-    <a href="#experiencia">{experience}</a>
-    <a href="#proyectos">{projects}</a>
-    <a href="#sobre-mi" style="display: none;">{about}</a>
-    <a href="#contacto" style="display: none;">{contact}</a>
-    <a href={CV_URL}>{cv}</a>
-    <LanguagePicker />
+  <nav class="flex flex-row opacity-90">
+    <div class="hamburger">
+      <MENU class="menu size-8" />
+      <div class="nav-links">
+        <a href="#top">{contact}{/*home*/}</a>
+        <a href="#experiencia">{experience}</a>
+        <a href="#proyectos">{projects}</a>
+        <a href="#sobre-mi" style="display: none;">{about}</a>
+        <a href="#contacto" style="display: none;">{contact}</a>
+        <a href={CV_URL}>{cv}</a>
+      </div>
+    </div>
+    <div style="display: grid; align-items: center">
+      <LanguagePicker />
+    </div>
   </nav>
 </header>
+
+<script>
+  document.querySelector(".menu")?.addEventListener("click", () => {
+    document.querySelector(".nav-links")?.classList.toggle("expanded");
+  });
+</script>
+
 <style>
+  /* estilos de la barra de navegación*/
+
+  .nav-links a:hover,
+  .nav-links a:focus,
+  .menu:hover,
+  .menu:focus {
+    transition: all 0.5s;
+    background-color: #d8b4fee6;
+    color: white;
+  }
+
+  .expanded {
+    display: unset !important;
+  }
+
+  .nav-links {
+    width: 100%;
+    top: 5rem;
+    display: none;
+  }
+
+  .nav-links a {
+    display: block;
+    color: #d8b4fee6;
+    background-color: #444;
+    text-align: center;
+    padding: 0.5rem 0;
+    transition: all 0.5s;
+  }
+
+  .hamburger {
+    display: block;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  .menu {
+    cursor: pointer;
+    display: unset;
+    min-width: 10rem;
+  }
+
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      margin-left: 5em;
+      display: block;
+      position: static;
+      width: auto;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 0.5rem;
+      width: 50px;
+      min-width: max-content;
+      max-width: max-content;
+      background: none;
+      color: white;
+    }
+
+    .hamburger {
+      display: unset;
+    }
+
+    .menu {
+      display: none;
+    }
+  }
+
   header {
     position: fixed;
     top: 0;
     z-index: 1;
     background-color: black;
-  }
-  nav {
-    justify-content: space-around;
-  }
-  nav a {
-    min-width: max-content;
-    width: 50px;
-    max-width: max-content;
+    min-height: 40px;
+    max-height: 40px;
+    font-size: large;
   }
 </style>
