@@ -50,6 +50,18 @@ import MENU from "@/icons/menu.astro";
 </script>
 
 <style>
+  header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: black;
+    min-height: 40px;
+    max-height: 40px;
+    font-size: large;
+    opacity: 0.9;
+    width: 100%;
+  }
+
   /* estilos de la barra de navegación*/
 
   .nav-links a:hover,
@@ -61,8 +73,6 @@ import MENU from "@/icons/menu.astro";
     color: white;
     border-radius: 5px;
   }
-
-  
 
   .expanded {
     display: unset !important;
@@ -95,7 +105,7 @@ import MENU from "@/icons/menu.astro";
 
   @media screen and (min-width: 636px) {
     .nav-links {
-      margin-left: 5em;
+      margin-left: auto;
       display: block;
       position: static;
       width: auto;
@@ -117,16 +127,5 @@ import MENU from "@/icons/menu.astro";
     .menu {
       display: none;
     }
-  }
-
-  header {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    background-color: black;
-    min-height: 40px;
-    max-height: 40px;
-    font-size: large;
-    opacity: 0.9;
   }
 </style>

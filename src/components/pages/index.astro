@@ -83,31 +83,34 @@ const currentYear = new Date().getFullYear();
             {saludo.summary}
           </span>
         </h2>
-
-        <nav id="contacto" class="gap-x-2" style="display: ruby;">
-          {
-            profiles.map(
-              ({
-                network,
-                url,
-                username,
-              }: {
-                network: string;
-                url: string;
-                username: string;
-              }) => {
-                const Icon = ICONS[network];
-                return (
+      </Container>
+      <ul id="contacto" class="gap-x-2" style="display: ruby;">
+        {
+          profiles.map(
+            ({
+              network,
+              url,
+              username,
+            }: {
+              network: string;
+              url: string;
+              username: string;
+            }) => {
+              const Icon = ICONS[network];
+              return (
+                <li style=" display: inline-flex;">
                   <SocialPill href={url} title={`Ir a ${name} en ${network}`}>
                     {Icon ? <Icon class="size-6" /> : <World class="size-6" />}
                     {username}
                   </SocialPill>
-                );
-              }
-            )
-          }
-          {
-            email && (
+                </li>
+              );
+            }
+          )
+        }
+        {
+          email && (
+            <li style=" display: inline-flex;">
               <SocialPill
                 href={`mailto:${email}`}
                 title={`Enviar un correo electrónico a ${name} al correo ${email}`}
@@ -115,10 +118,10 @@ const currentYear = new Date().getFullYear();
                 <Mail class="size-6" />
                 {email}
               </SocialPill>
-            )
-          }
-        </nav>
-      </Container>
+            </li>
+          )
+        }
+      </ul>
     </Container>
 
     <Container id="experiencia" class="mb-32">
@@ -137,3 +140,12 @@ const currentYear = new Date().getFullYear();
     </Container>
   </main>
 </Layout>
+
+<style>
+  #contacto ul {
+    display: ruby;
+  }
+  #contacto ul li {
+    display: inline-flex;
+  }
+</style>
