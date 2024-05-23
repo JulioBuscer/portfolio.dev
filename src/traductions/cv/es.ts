@@ -208,7 +208,7 @@ export const cv: CvData =
                 "JavaScript",
                 "SQL Server"
             ],
-            "url": "http://20.101.137.14:8083/Offer/faces/index.xhtml",
+            "url": "",
             "image": "/projects/Project-OfferForm.webp"
         }
     ]
