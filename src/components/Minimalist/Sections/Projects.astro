@@ -20,9 +20,12 @@ import LinkExtrernalIcon from "@/icons/Link-External.astro";
               <header>
                 <div>
                   <h3 class="flex gap-x-2 flex-row">
+                    {
+                      url && (
                     <a href={url} target="_blank" style="color: #666;">
                       <LinkExtrernalIcon class="size-5" />
-                    </a>
+                    </a>)
+                    }
                     {name}
                   </h3>
                   <p>{description}</p>
