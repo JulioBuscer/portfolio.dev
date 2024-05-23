@@ -2,7 +2,7 @@ import type { CvData } from '../../interfaces/CvData.ts';
 export const cv: CvData = {
     "basics": {
         "name": "Julio Bustamante",
-        "label": "Programmer & Develper Web",
+        "label": "Programmer & Developer Web",
         "image": "https://media.licdn.com/dms/image/D5603AQEo0AFz5bIYZA/profile-displayphoto-shrink_800_800/0/1705929035623?e=1718236800&v=beta&t=D4pFn6AawcQ5207uK-FxBR5NgEJ6PgklASND48csuBc",
         "email": "juliobuscer@gmail.com",
         "phone": "+52 (477) 704-6131",
@@ -79,21 +79,9 @@ export const cv: CvData = {
             "url": "https://www.utleon.edu.mx/",
             "area": "Software Development and Management.",
             "studyType": "Engineer",
-            "startDate": "2020-09-01",
+            "startDate": "2018-09-01",
             "endDate": "2022-08-01",
             "score": "9.0",
-            "courses": [
-                "DB1101 - Basic SQL"
-            ]
-        },
-        {
-            "institution": "Universidad Tecnológica de León",
-            "url": "https://www.utleon.edu.mx/",
-            "area": "Multiplatform Software Development",
-            "studyType": "Higher University Technician",
-            "startDate": "2018-09-01",
-            "endDate": "2020-08-30",
-            "score": "4.0",
             "courses": [
                 "DB1101 - Basic SQL"
             ]
