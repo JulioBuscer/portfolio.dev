@@ -9,6 +9,7 @@ type WorkType = {
   endDate?: string;
   link?: string;
   image?: string;
+  highlights?: string[];
 };
 const { work } = Astro.props as { work: WorkType[] };
 ---

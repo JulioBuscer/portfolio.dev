@@ -10,17 +10,20 @@ import CardTime from "@/components/CardTime.astro";
 <Section title={title}>
   <ul>
     {
-      work.map(({ name, startDate, endDate, position, summary }) => (
-        <li>
-          <CardTime
-            title={name}
-            position={position}
-            startDate={startDate}
-            endDate={endDate ? endDate : undefined}
-            description={summary}
-          />
-        </li>
-      ))
+      work.map(
+        ({ name, startDate, endDate, position, summary, highlights }) => (
+          <li>
+            <CardTime
+              title={name}
+              position={position}
+              startDate={startDate}
+              endDate={endDate ? endDate : undefined}
+              description={summary}
+              highlights={highlights}
+            />
+          </li>
+        )
+      )
     }
   </ul>
 </Section>

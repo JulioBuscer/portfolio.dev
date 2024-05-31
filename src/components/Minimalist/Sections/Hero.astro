@@ -31,8 +31,10 @@ const { MailSend, PhoneCall, World } = ICONS;
               title={`Enviar un correo electrónico a ${name} al correo ${email}`}
               target="_blank"
               rel="noopener noreferrer"
+              style="font-size: 0.85rem;"
             >
-              <MailSend />
+              <MailSend style="width: 24px; height: 24px" />
+              {email}
             </a>
           )
         }
@@ -55,6 +57,7 @@ const { MailSend, PhoneCall, World } = ICONS;
             ({
               network,
               url,
+              username,
             }: {
               network: string;
               url: string;
@@ -67,8 +70,14 @@ const { MailSend, PhoneCall, World } = ICONS;
                   title={`Ir a ${name} en ${network}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  style="font-size: 0.85rem"
                 >
-                  {Icon ? <Icon /> : <World />}
+                  {Icon ? (
+                    <Icon style="width: 24px; height: 24px; padding-right:0.2rem" />
+                  ) : (
+                    <World />
+                  )}
+                  {username}
                 </a>
               );
             }
@@ -127,7 +136,7 @@ const { MailSend, PhoneCall, World } = ICONS;
     justify-content: center;
     border: 1px solid #eee;
     padding: 4px;
-    width: 32px;
+    width: auto;
     height: 32px;
     border-radius: 6px;
     transition: all 0.3s ease;

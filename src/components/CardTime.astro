@@ -7,9 +7,18 @@ interface Props {
   endDate?: string;
   link?: string;
   image?: string;
+  highlights?: string[];
 }
-const { title, position, description, startDate, endDate, link, image } =
-  Astro.props;
+const {
+  title,
+  position,
+  description,
+  startDate,
+  endDate,
+  link,
+  image,
+  highlights,
+} = Astro.props;
 
 const startDate_short = startDate
   ? new Date(startDate).toLocaleDateString("es-MX", {
@@ -41,6 +50,15 @@ const date = startDate_short + " - " + endDate_short;
     <p>
       {description}
     </p>
+    {
+      highlights && (
+        <ul>
+          {highlights.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
     {
       link && (
         <a href={link} target="_blank" rel="noopener noreferrer">
@@ -77,5 +95,15 @@ const date = startDate_short + " - " + endDate_short;
     font-size: 0.9rem;
     color: #666;
     text-transform: capitalize;
+  }
+  footer ul {
+    padding-left: 2rem;
+  }
+  footer ul li {
+    list-style: disc;
+    font-size: 0.75rem;
+    color: #666;
+    text-wrap: balance;
+    padding: 0.1rem;
   }
 </style>
