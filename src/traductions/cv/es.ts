@@ -4,7 +4,7 @@ export const cv: CvData = {
     name: "Julio Bustamante",
     label: "Programador y Desarrollador Web",
     image:
-      "https://media.licdn.com/dms/image/D5603AQEo0AFz5bIYZA/profile-displayphoto-shrink_800_800/0/1705929035623?e=1718236800&v=beta&t=D4pFn6AawcQ5207uK-FxBR5NgEJ6PgklASND48csuBc",
+      "/img/Perfil2.avif",
     email: "juliobuscer@gmail.com",
     phone: "+52 (477) 704-6131",
     url: "https://johndoe.com",
@@ -32,6 +32,22 @@ export const cv: CvData = {
     ],
   },
   work: [
+    {
+      name: "Corporativo EDUCEM",
+      position: "Desarrollador Web",
+      url: "https://www.educem.mx",
+      startDate: "2024-06-19",
+      endDate: "",
+      summary: "",
+      highlights: [
+        "Trabajo en equipo, por proyecto",
+        "Colaboracion con Ejecutivos Directivos y el area de producción para conocer los requicitos y las especiicaciónes empresariales en torno a la gestion de las ofertas a cliente, analisis y riesgos",
+        "Implementando tecnologias modernas para la mejora continua y evolucion de la empresa y sus clientes",
+        "Implementación y actualización de modulos de aplicación bajo la direccion del Porject Manager",
+        "Codificción eficaz de cambios y mejoras del software en base a especificaciónes concretas",
+        "Desarrollo y presentacion de concluciones y soluciones a altos ejecutivos y partes interesadas",
+      ],
+    },
     {
       name: "Novatec Group",
       position: "Desarrollador Java FullStack",
@@ -156,6 +172,16 @@ export const cv: CvData = {
       highlights: ["JSF", "XHTML", "CSS", "Java", "JavaScript", "SQL Server"],
       url: "",
       image: "/projects/Project-OfferForm.webp",
+    },
+    {
+      name: "Chat IA Local",
+      startDate: "2024-06-20",
+      endDate: null,
+      description:
+        "Proyecto personal, para implementar modelos de IA desde el navegador utilizando recursos del cliente, implementando la libreria Web LLM",
+      highlights: ["HTML", "CSS", "JavaScript", "Web LLM", "Web Workers"],
+      url: "https://chat-ia-local.netlify.app/",
+      image: "/projects/ChatIALocal-preview.avif",
     },
   ],
 };

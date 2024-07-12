@@ -3,8 +3,7 @@ export const cv: CvData = {
   basics: {
     name: "Julio Bustamante",
     label: "Programmer & Developer Web",
-    image:
-      "https://media.licdn.com/dms/image/D5603AQEo0AFz5bIYZA/profile-displayphoto-shrink_800_800/0/1705929035623?e=1718236800&v=beta&t=D4pFn6AawcQ5207uK-FxBR5NgEJ6PgklASND48csuBc",
+    image: "/img/Perfil2.avif",
     email: "juliobuscer@gmail.com",
     phone: "+52 (477) 704-6131",
     url: "https://johndoe.com",
@@ -32,6 +31,22 @@ export const cv: CvData = {
     ],
   },
   work: [
+    {
+      name: "Corporativo EDUCEM",
+      position: "Web Developer",
+      url: "https://www.educem.mx",
+      startDate: "2024-06-19",
+      endDate: "",
+      summary: "",
+      highlights: [
+        "Work in team by project",
+        "Collaboration with executives and the production area to know the requirements and business specificities around the management of customer offers, analysis and risks",
+        "Implementing modern technologies for the continuous improvement and evolution of the company and its customers",
+        "Implementing and upgrading application modules under the guidance of the Porject Manager",
+        "Effective coding of software changes and enhancements based on concrete specifications",
+        "Development and presentation of findings and solutions to senior executives and stakeholders",
+      ],
+    },
     {
       name: "Novatec Group",
       position: "FullStack developer",
@@ -157,6 +172,16 @@ export const cv: CvData = {
       highlights: ["JSF", "XHTML", "CSS", "Java", "JavaScript", "SQLServer"],
       url: "",
       image: "/projects/Project-OfferForm.webp",
+    },
+    {
+      name: "AI Chat Local",
+      startDate: "2024-06-20",
+      endDate: null,
+      description:
+        "Personal project, to implement AI models from the browser using client resources, implementing the Web LLM library.",
+      highlights: ["HTML", "CSS", "JavaScript", "Web LLM", "Web Workers"],
+      url: "https://chat-ia-local.netlify.app/",
+      image: "/projects/ChatIALocal-preview.avif",
     },
   ],
 };

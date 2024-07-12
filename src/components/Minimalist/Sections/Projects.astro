@@ -13,35 +13,33 @@ import LinkExtrernalIcon from "@/icons/Link-External.astro";
 <Section title={title}>
   <ul>
     {
-      projects.map(
-        ({ name,description,url}) => (
-          <li>
-            <>
-              <header>
-                <div>
-                  <h3 class="flex gap-x-2 flex-row">
-                    {
-                      url && (
-                    <a href={url} target="_blank" style="color: #666;">
-                      <LinkExtrernalIcon class="size-5" />
-                    </a>)
-                    }
-                    {name}
-                  </h3>
-                  <p>{description}</p>
-                </div>
-              </header>
-              
-              <!--ul class="flex gap-x-2 flex-row"-->
-                {/*highlights.map((highlight) => (
-                  <li />
-                ))*/}
-              <!--/ul-->
-              
-            </>
-          </li>
-        )
-      )
+      projects.map(({ name, description, url, highlights }) => (
+        <li class="py-2">
+          <>
+            <header class="py-2">
+              <div>
+                <h3 class="flex gap-x-2 flex-row font-bold">
+                  {url ? (
+                    <a class="flex gap-x-2 flex-row" href={url} target="_blank">
+                      {name}
+                      <LinkExtrernalIcon class="size-5" style="color: #666;" />
+                    </a>
+                  ) : (
+                    name
+                  )}
+                </h3>
+                <p>{description}</p>
+              </div>
+            </header>
+
+            <ul class="flex gap-x-2 flex-row">
+              {highlights?.map((highlight) => (
+                <li>[{highlight}]</li>
+              ))}
+            </ul>
+          </>
+        </li>
+      ))
     }
   </ul>
 </Section>

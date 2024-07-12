@@ -11,8 +11,8 @@ import CardTime from "@/components/CardTime.astro";
   <ul>
     {
       work.map(
-        ({ name, startDate, endDate, position, summary, highlights }) => (
-          <li>
+        ({ name, startDate, endDate, position, summary, highlights, url }) => (
+          <li class="py-2">
             <CardTime
               title={name}
               position={position}
