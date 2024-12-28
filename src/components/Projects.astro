@@ -4,72 +4,9 @@ import type { CvData } from "@/interfaces/CvData.ts";
 const { projects } = Astro.props as CvData;
 
 import LinkExtrernalIcon from "@/icons/Link-External.astro";
+import ProjectCard from "./ProjectCard.astro";
 ---
 
-{
-  projects.map(({ name, description, image, highlights, url }, index) => (
-    <article class="py-2 ">
-      <h1 class="font-bold text-purple-300">
-        {url ? (
-          <a href={url} target="_blank" class="flex gap-x-2 flex-row">
-            {name}
-            <LinkExtrernalIcon class="size-5" />
-          </a>
-        ) : (
-          name
-        )}
-      </h1>
-      <p>{description}</p>
-      <ul class=" gap-x-2">
-        {highlights.map((tag) => {
-          const Icon = ICONS[tag];
-          return (
-            <li>
-              {Icon && <Icon class="size-5 text-purple-300/90" title={tag} />}
-              {tag}
-            </li>
-          );
-        })}
-      </ul>
-
-      {url ? (
-        <a href={url}>
-          <img
-            src={image}
-            loading="lazy"
-            alt={`Captura de pantalla del proyecto ${name}`}
-          />
-        </a>
-      ) : (
-        <img
-          src={image}
-          loading="lazy"
-          alt={`Captura de pantalla del proyecto ${name}`}
-        />
-      )}
-      {projects.length > 0 && index < projects.length - 1 ? (
-        <>
-          <div
-            style="width: 100%; height: 10px; background-color: #C6A6E699;"
-            class="blur my-4"
-          />
-        </>
-      ) : null}
-    </article>
-  ))
-}
-
-<style>
-  article ul {
-    display: ruby;
-  }
-  article ul li {
-    display: inline-flex;
-    margin: 0.5rem;
-    justify-items: center;
-    background-color: #23262d;
-    border: 1px solid #d8b4fee6;
-    border-radius: 1rem;
-    padding: 0.5rem;
-  }
-</style>
+<div class="w-full grid md:grid-cols-2 gap-4">
+  {projects.map((project) => <ProjectCard project={project} />)}
+</div>

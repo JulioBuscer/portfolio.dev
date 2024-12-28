@@ -3,13 +3,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@cv":[
+      "@cv": [
         "./cv.json"
       ],
-      "@/*":[
+      "@/*": [
         "src/*"
       ]
     },
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

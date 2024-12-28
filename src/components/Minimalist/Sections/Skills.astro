@@ -6,7 +6,6 @@ const { title } = Astro.props;
 import type { CvData } from "@/interfaces/CvData.ts";
 const { skills } = Astro.props as CvData;
 
-
 import JSFIcon from "@/icons/JSF.astro";
 import JavaIcon from "@/icons/Java.astro";
 import JavaScriptIcon from "@/icons/JavaScript.astro";
@@ -20,6 +19,8 @@ import GitHubIcon from "@/icons/Github.astro";
 import ReactIcon from "@/icons/React.astro";
 import NodeJsIcon from "@/icons/NodeJs.astro";
 import MongoDBIcon from "@/icons/MongoDB.astro";
+import SpringBootIcon from "@/icons/SpringBootIcon.astro";
+import NextJsIcon from "@/icons/NextJsIcon.astro";
 
 const TAGS = [
   { name: "JSF", class: "bg-black text-white", icon: JSFIcon },
@@ -35,6 +36,8 @@ const TAGS = [
   { name: "React", class: "bg-black text-white", icon: ReactIcon },
   { name: "Node.Js", class: "bg-black text-white", icon: NodeJsIcon },
   { name: "MongoDB", class: "bg-black text-white", icon: MongoDBIcon },
+  { name: "Spring Boot", class: "bg-black text-white", icon: SpringBootIcon },
+  { name: "Next.js", class: "bg-black text-white", icon: NextJsIcon },
 ];
 ---
 

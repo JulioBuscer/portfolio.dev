@@ -1,0 +1,213 @@
+---
+import { ICONS } from "@/icons/icons.astro";
+import LinkExtrernalIcon from "@/icons/Link-External.astro";
+import type { Projects } from "@/interfaces/CvData";
+const { project } = Astro.props as { project: Projects };
+const { name, description, image, highlights, url } = project;
+---
+
+<div class="card-container">
+    <div class="card">
+        <!-- Front of card -->
+        <div
+            class="card-front"
+            style={{
+                "background-image": `url(${image})`,
+            }}
+        >
+            <div class="card-overlay">
+                <img src={image} alt={name} class="card-image" />
+                <div class="card-content">
+                    <h2 class="card-title">{name}</h2>
+                    <div class="highlights-icons">
+                        {
+                            highlights.map((tag) => {
+                                const Icon = ICONS[tag.replace(/ /g, "")];
+                                return (
+                                    <div class="icon-container" title={tag}>
+                                        {Icon && (
+                                            <Icon class="size-5 icon p-1" />
+                                        )}
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back of card -->
+        <div class="card-back">
+            <img src={image} alt={name} class="card-image blur" />
+            <div class="card-content">
+                <h2 class="card-title">
+                    {
+                        url ? (
+                            <a
+                                href={url}
+                                target="_blank"
+                                class="flex gap-x-2 flex-row"
+                            >
+                                {name}
+                                <LinkExtrernalIcon class="size-5" />
+                            </a>
+                        ) : (
+                            name
+                        )
+                    }
+                </h2>
+                <p class="card-description">{description}</p>
+                <div class="highlights-list">
+                    {
+                        highlights.map((tag) => {
+                            const Icon = ICONS[tag.replace(/ /g, "")];
+                            return (
+                                <div class="highlight-item">
+                                    {Icon && <Icon class="icon" />}
+                                    <span class="highlight-text">{tag}</span>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card-container {
+        perspective: 1000px;
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        min-width: 300px;
+    }
+    .card:hover {
+        border: 1px solid #d8b4fee6;
+        box-shadow: 0 0 10px #d8b4fee6;
+        border-radius: 0.5rem;
+    }
+
+    .card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        min-height: 400px;
+        min-width: 300px;
+    }
+
+    .card-container:hover .card {
+        transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .card-overlay {
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100%;
+    }
+
+    .blur {
+        opacity: 0.3;
+    }
+
+    .card-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        color: #d8b4fee6;
+        backdrop-filter: blur(4px);
+        background-color: #FFFFFF11;
+    }
+
+    .card-back .card-content {
+        height: 100%;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .card-description {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        flex-grow: 1;
+        text-wrap: pretty;
+    }
+
+    .highlights-icons {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .highlights-list {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        color: #d8b4fee6;
+        justify-content: space-evenly;
+    }
+
+    .highlight-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .icon {
+        width: 2rem;
+        height: 2rem;
+        color: #d8b4fee6;
+    }
+
+    .icon-container {
+        background: rgba(255, 255, 255, 0.1);
+        gap: 1rem;
+        border-radius: 0.25rem;
+        transition: background-color 0.3s;
+    }
+
+    .icon-container:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .highlight-text {
+        font-size: 0.875rem;
+    }
+</style>

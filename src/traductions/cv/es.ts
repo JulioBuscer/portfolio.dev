@@ -117,7 +117,7 @@ export const cv: CvData = {
     {
       name: "Frameworks",
       level: "Advanced",
-      keywords: ["React", "Astro", "JSF"],
+      keywords: ["Next.js", "React", "Astro", "JSF"],
     },
     {
       name: "Frontend",
@@ -127,7 +127,7 @@ export const cv: CvData = {
     {
       name: "Backend",
       level: "Advanced",
-      keywords: ["Java", "Node.js"],
+      keywords: ["Spring Boot", "Java", "Node.js",],
     },
     {
       name: "Bases de Datos",
@@ -182,6 +182,17 @@ export const cv: CvData = {
       highlights: ["HTML", "CSS", "JavaScript", "Web LLM", "Web Workers"],
       url: "https://chat-ia-local.netlify.app/",
       image: "/projects/ChatIALocal-preview.avif",
+    },
+
+    {
+      name: "Educem",
+      startDate: "2024-08-01",
+      endDate: "2024-11-01",
+      description:
+        "Colaborador en el desarrollo Frontend de la pagina oficial de la empresa educativa educem. Elaborada con React y Material UI",
+      highlights: ["React", "CSS", "TypeScript", "MUI"],
+      url: "https://educem.mx/",
+      image: "/projects/Educem.webp",
     },
   ],
 };
