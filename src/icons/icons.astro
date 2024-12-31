@@ -1,5 +1,6 @@
 ---
 import AstroIcon from "./AstroIcon.astro";
+import Astro from "./AstroIcon.astro";
 import Briefcase from "./Briefcase.astro";
 import Code from "./Code.astro";
 import CSS from "./CSS.astro";
@@ -12,24 +13,35 @@ import LinkedIn from "./LinkedIn.astro";
 import LinkExternal from "./Link-External.astro";
 import Mail from "./Mail.astro";
 import MailSend from "./MailSend.astro";
+import Gmail from "./Gmail.astro";
 import MongoDB from "./MongoDB.astro";
 import MySQL from "./MySQL.astro";
 import NodeJs from "./NodeJs.astro";
+import Nextjs from "./NextJsIcon.astro";
 import PhoneCall from "./PhoneCall.astro";
 import React from "./React.astro";
 import SQLServer from "./SQLServer.astro";
+import SpringBoot from "./SpringBootIcon.astro";
 import World from "./World.astro";
 import XHTML from "./XHTML.astro";
 import MUI from "./MUI.astro";
 import WebLLM from "./WebLLM.astro";
 import WebWorkers from "./WebWorkers.astro";
 
+import EN from "./EN.astro";
+import ES from "./ES.astro";
+import TypeScript from "./TypeScript.astro";
+import SpringIcon from "./SpringIcon.astro";
+
 export const ICONS: Record<string, any> = {
+  Astro: AstroIcon,
   AstroIcon,
   Briefcase,
   Code,
   CSS,
   Github,
+  GitHub: Github,
+  Gmail,
   HTML,
   Java,
   JavaScript,
@@ -43,18 +55,55 @@ export const ICONS: Record<string, any> = {
   WebLLM,
   MySQL,
   NodeJs,
+  Nodejs: NodeJs,
+  Nextjs,
+  NextJs: Nextjs,
   PhoneCall,
   React,
   SQLServer,
+  SpringBoot,
   TypeScript,
   WebWorkers,
   World,
   XHTML,
 };
 
-import EN from "./EN.astro";
-import ES from "./ES.astro";
-import TypeScript from "./TypeScript.astro";
+export const ICONS_COLORS: Record<string, string> = {
+  AstroIcon: "#BC52EE",
+  Astro: "#BC52EE",
+  Briefcase: "#FFF",
+  Code: "#FFF",
+  CSS: "#663399",
+  Github: "#FEFEFE", //"#181717",
+  GitHub: "#FEFEFE", //"#181717",
+  Gmail: "#EA4335",
+  HTML: "#E34F26",
+  Java: "#FFF",
+  JavaScript: "#F7DF1E",
+  JSF: "#0084FF",
+  LinkedIn: "#FFF",
+  LinkExternal: "#FFF",
+  Mail: "#FFF",
+  MailSend: "#FFF",
+  MongoDB: "#47A248",
+  MUI: "#007FFF",
+  WebLLM: "#262D3A",
+  MySQL: "#0084FF", //"#4479A1",
+  NodeJs: "#5FA04E",
+  Nodejs: "#5FA04E",
+  NextJs: "#FEFEFE",
+  Nextjs: "#FEFEFE",
+  PhoneCall: "#FFF",
+  React: "#61DAFB",
+  SQLServer: "#0084FF", //"#003B57",
+  SpringBoot: "#6DB33F",
+  SQLite: "#003B57",
+  PostgreSQL: "#4169E1",
+  TypeScript: "#3178C6",
+  WebWorkers: "#FFF",
+  World: "#FFF",
+  XHTML: "#3366CC",
+};
 
 export const FLAG_LANGUAGES: Record<string, any> = {
   EN,

@@ -4,5 +4,9 @@ export default {
 	theme: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [
+		'tailwindcss/nesting',
+		'tailwindcss',
+		'autoprefixer',
+	],
 }

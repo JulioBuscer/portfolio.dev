@@ -1,0 +1,371 @@
+---
+import type { Basics, Skill } from "@/interfaces/CvData";
+import type { Saludo } from "@/interfaces/PageData";
+
+import World from "@/icons/World.astro";
+import { ICONS_COLORS, ICONS } from "@/icons/icons.astro";
+
+import { getYearsExperience } from "@/utils/functions";
+
+const { saludo } = Astro.props as { saludo: Saludo };
+const {
+    hello,
+    openToWork,
+    experience,
+    rol,
+    from,
+    summary: summarySaludo,
+} = saludo;
+
+const { basics } = Astro.props as { basics: Basics };
+const { name, label, location, profiles } = basics;
+
+const { skills } = Astro.props as { skills: Skill[] };
+
+const { startYear } = Astro.props;
+
+const BGAvatar = "img/BGAvatar.webp";
+//TODO: CAmbiar la imagen por la de basics
+const image = "img/Avatar.webp";
+
+const yearsExperience = getYearsExperience(startYear);
+---
+
+<div class="card">
+    <div class="card-title">
+        <h2>{name}</h2>
+        <p>{label}</p>
+    </div>
+
+    <div
+        class="card-character"
+        style={{ "background-image": `url(${BGAvatar})` }}
+    >
+        <div class="card-character-image">
+            <img src={image} alt={name} />
+        </div>
+        <div class="card-character-title">
+            <h2>{name}</h2>
+            <p>{label}</p>
+        </div>
+    </div>
+    <div class="card-content w-full">
+        <h1>{hello}</h1>
+        <p class="card-content-description">
+            <!-- <span>{openToWork.available ? openToWork.label : ""}</span> -->
+            <span style="font-weight: bold">+{yearsExperience}</span>
+            <span style="">{experience}</span>
+            <span style="color: #d8b4fe">{rol}</span>
+            <span>{from}</span>
+            <span>{location.country}</span>
+            <span class="opacity-80">{summarySaludo}</span>
+        </p>
+        {
+            profiles && (
+                <ul class="card-content-list">
+                    {profiles.map(({ network, url, username }) => {
+                        const Icon = ICONS[network];
+                        return (
+                            <li class="card-content-list-item ">
+                                <a
+                                    href={url}
+                                    title={`Ir a ${name} en ${network}`}
+                                >
+                                    {Icon ? (
+                                        <Icon class="size-6" />
+                                    ) : (
+                                        <World class="size-6" />
+                                    )}
+                                    <p>{username}</p>
+                                </a>
+                            </li>
+                        );
+                    })}
+                </ul>
+            )
+        }
+
+        <div class="card-skills">
+            {
+                skills.map(({ name, level, keywords }) => (
+                    <div class="card-skills-item">
+                        <div class="card-skill">
+                            <p>{name}</p>
+                        </div>
+                        <div class="card-skills-items">
+                            {keywords &&
+                                keywords.map((keyword) => {
+                                    keyword = keyword.replace(/[^\w]/gi, "");
+                                    const Icon = ICONS[keyword];
+                                    const color = ICONS_COLORS[keyword];
+                                    console.log(
+                                        "Icono: ",
+                                        keyword,
+                                        " Color: ",
+                                        color,
+                                    );
+                                    return (
+                                        <Icon
+                                            class="icon size-10 "
+                                            style={`--icon-color: ${color};`}
+                                        />
+                                    );
+                                })}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        display: flex;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(4px);
+        gap: 0.5rem;
+        text-align: center;
+        text-wrap: balance;
+        color: #fff;
+    }
+
+    .card-title {
+        display: none;
+        padding: 0.5rem;
+        font-size: 1.75rem;
+    }
+
+    .card-character,
+    .card-content {
+        border: 1px solid #d8b4fee6;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        backdrop-filter: blur(1rem);
+        background-color: #d8b4fe11;
+        position: relative;
+    }
+
+    .card-content h1 {
+        font-size: 1.75rem;
+        font-weight: bold;
+    }
+
+    .card-character {
+        border-radius: 0.5rem 0 0 0.5rem;
+        padding-top: 0;
+        img {
+            justify-content: center;
+            object-fit: cover;
+            mask-image: radial-gradient(circle, black 75%, transparent);
+        }
+    }
+
+    .card-character-image {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+    }
+    .card-character-title {
+        font-size: 1.75rem;
+        padding: 0.5rem;
+        border-radius: 0rem 0rem 0rem 1cqi;
+        backdrop-filter: blur(40px);
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .card-character-subtitle {
+        color: #d8b4fe;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(40px);
+    }
+
+    .card-title p {
+        font-size: 1.25rem;
+    }
+
+    .card-content {
+        border-radius: 0 0.5rem 0.5rem 0;
+        align-items: flex-start;
+        text-align: left;
+        padding: 1.5rem;
+        gap: 0.5rem;
+    }
+    .card-content-title {
+        font-size: 1.5rem;
+    }
+
+    .card-content-description {
+        gap: 0.5rem;
+        align-items: baseline;
+        text-wrap: pretty;
+        span {
+            font-size: 1.5rem;
+        }
+    }
+    .card-content-list {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .card-content-list-item a {
+        display: flex;
+        border-radius: 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        height: 2rem;
+        p {
+            display: none;
+        }
+
+        &:hover {
+            transition: all 1s;
+            background-color: #d8b4fee6;
+            color: white;
+            border-radius: 5px;
+
+            p {
+                transition: all 1s;
+                display: block;
+            }
+        }
+    }
+
+    .card-skills {
+        display: flex;
+        flex-direction: column;
+        background-color: #d8b4fe11;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .card-skills-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 5px;
+    }
+    .card-skill {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 5px;
+        width: 20vw;
+        padding: 0.5rem;
+    }
+    .card-skills-items {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 5px;
+    }
+
+    .icon {
+        color: #d8b4fee6;
+        padding: 0.5rem;
+    }
+
+    .icon:hover {
+        opacity: 1;
+        color: var(--icon-color);
+        filter: drop-shadow(0px 0px 10px var(--icon-color));
+        transition: all 0.5s;
+    }
+
+    .card:hover {
+        .card-character-title h2,
+        .card-title h2 {
+            color: #d8b4fe;
+        }
+        .card-character-image {
+            transition: all 0.5s;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 1)
+            );
+        }
+    }
+    @media screen and (max-width: 740px) {
+        .card {
+            flex-direction: column;
+            border: 1px solid #d8b4fee6;
+            padding: 1.5rem;
+            padding-top: 0;
+            backdrop-filter: blur(1rem);
+            background-color: #d8b4fe11;
+        }
+        .card-skills {
+            display: flex;
+        }
+        .card-title {
+            display: block;
+        }
+        .card-character-title,
+        .card-character-subtitle {
+            display: none;
+        }
+        .card-character,
+        .card-content {
+            border: none;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            backdrop-filter: none;
+            span {
+                font-size: 1rem;
+            }
+            .description {
+                font-size: 1.25rem;
+            }
+            .size-6 {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+        .card-content h1 {
+            font-size: 1.25rem;
+        }
+
+        .icon {
+            width: 1rem;
+            height: 1rem;
+            padding: 0;
+            gap: 0.5rem;
+            opacity: 1;
+            color: var(--icon-color);
+            filter: drop-shadow(0px 0px 10px var(--icon-color));
+            transition: all 0.5s;
+        }
+
+        .card-character {
+            padding: 0;
+        }
+
+        .card-character-image {
+            border-radius: 0.5rem;
+
+            img {
+                max-height: 30vh;
+                border-radius: 0.5rem;
+            }
+        }
+        .card-skills-item {
+            .card-skill {
+                padding: 0.5rem 0 0 0.5rem;
+                font-size: 0.75rem;
+            }
+        }
+    }
+</style>

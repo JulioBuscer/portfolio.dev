@@ -13,116 +13,28 @@ import type { Section, Page } from "@/interfaces/PageData.ts";
 import type { CvData } from "@/interfaces/CvData";
 const { title, description, saludo }: Page = t("page") as Page;
 
-const { basics, work, projects }: CvData = t("cv") as CvData;
-const { name, profiles, email } = basics;
-//const { city, region } = location;
+const { basics, work, projects, skills }: CvData = t("cv") as CvData;
 
-import { ICONS, FLAG_LANGUAGES } from "@/icons/icons.astro";
-const { Mail, World, Code, Briefcase } = ICONS;
-const { ES: FLAG_MX } = FLAG_LANGUAGES;
+import { ICONS } from "@/icons/icons.astro";
+import CardMe from "../CardMe.astro";
+const { Code, Briefcase } = ICONS;
 
 const SECTIONS = t("section") as Section;
-const {
-  //about: t_about,
-  //skills: t_skills,
-  experience: t_experience,
-  projects: t_projects,
-  //education: t_education,
-} = SECTIONS;
-const currentYear = new Date().getFullYear();
+const { experience: t_experience, projects: t_projects } = SECTIONS;
 ---
 
 <Layout title={title} description={description}>
   <main class="px-4">
-    <Container id="top" class="py-44 pb-30">
-      <Container class="flex justify-center">
-        <img
-          class="rounded-full mb-4"
-          style="width: 15rem;
-          background-color: #CAE;"
-          src="/img/Perfil2.avif"
-          alt="buscer"
+    <Container id="top" class="md:py-32 py-20">
+      <Container id="sobre-mi">
+        <CardMe
+          saludo={saludo}
+          basics={basics}
+          skills={skills}
+          startYear={work?.[work.length - 1]?.startDate}
         />
       </Container>
-      <Container id="sobre-mi">
-        <h1
-          class="dark:text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4"
-        >
-          {saludo.hello}
-          <a
-            href="https://www.linkedin.com/in/juliobuscer/"
-            target="_blank"
-            rel="noopener"
-            class="flex justify-center items-center"
-          >
-            {
-              saludo?.openToWork.available ? (
-                <Badge>{saludo.openToWork.label}</Badge>
-              ) : null
-            }
-          </a>
-        </h1>
-        <h2 class="text-2xl text-wrap max-w-[700]">
-          <span>
-            +{
-              currentYear -
-                (work?.[work.length - 1]?.startDate
-                  ? new Date(work[work.length - 1].startDate).getFullYear()
-                  : currentYear)
-            }
-            {saludo.experience}</span
-          >
-          <span class="text-purple-300/90">
-            {saludo.rol}
-          </span>
-          <span class="text-red-50 opacity-80" style="display: inline;">
-            {saludo.from}
-            {basics.location.country}.
-          </span>
-          <span class="opacity-80">
-            <br />
-            {saludo.summary}
-          </span>
-        </h2>
-      </Container>
-      <ul id="contacto" class="gap-x-2" style="display: ruby;">
-        {
-          profiles.map(
-            ({
-              network,
-              url,
-              username,
-            }: {
-              network: string;
-              url: string;
-              username: string;
-            }) => {
-              const Icon = ICONS[network];
-              return (
-                <li style=" display: inline-flex;">
-                  <SocialPill href={url} title={`Ir a ${name} en ${network}`}>
-                    {Icon ? <Icon class="size-6" /> : <World class="size-6" />}
-                    {username}
-                  </SocialPill>
-                </li>
-              );
-            }
-          )
-        }
-        {
-          email && (
-            <li style=" display: inline-flex;">
-              <SocialPill
-                href={`mailto:${email}`}
-                title={`Enviar un correo electrónico a ${name} al correo ${email}`}
-              >
-                <Mail class="size-6" />
-                {email}
-              </SocialPill>
-            </li>
-          )
-        }
-      </ul>
+      <Container />
     </Container>
 
     <Container id="experiencia" class="mb-32">

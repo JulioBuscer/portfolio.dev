@@ -3,7 +3,8 @@ export const cv: CvData = {
   basics: {
     name: "Julio Bustamante",
     label: "Programmer & Developer Web",
-    image: "/img/Perfil2.avif",
+    //TODO: cambiar la foto    
+    image: "img/Avatar.webp",
     email: "juliobuscer@gmail.com",
     phone: "+52 (477) 704-6131",
     url: "https://johndoe.com",
@@ -18,6 +19,11 @@ export const cv: CvData = {
       region: "Guanajuato",
     },
     profiles: [
+      {
+        network: "Gmail",
+        username: "juliobuscer@gmail.com",
+        url: "mailto:juliobuscer@gmail.com",
+      },
       {
         network: "LinkedIn",
         username: "Julio Bustamante",
@@ -117,7 +123,7 @@ export const cv: CvData = {
     {
       name: "Frameworks",
       level: "Advanced",
-      keywords: ["Next.js","React", "Astro", "JSF"],
+      keywords: ["Next.js", "React", "Astro", "JSF"],
     },
     {
       name: "Frontend",

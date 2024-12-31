@@ -1,4 +1,4 @@
-export interface Projects {
+export interface Project {
   name: string;
   startDate: string;
   endDate: string | null;
@@ -8,92 +8,105 @@ export interface Projects {
   image: string;
 }
 
+export interface Location {
+  address: string;
+  postalCode: string;
+  city: string;
+  country: string;
+  countryCode: string;
+  region: string;
+}
+export interface Profile {
+  network: string;
+  username: string;
+  url: string;
+}
+export interface Basics {
+  name: string;
+  label: string;
+  image: string;
+  email: string;
+  phone: string;
+  url: string;
+  summary: string;
+  location: Location;
+  profiles: Profile[];
+}
+export interface Work {
+  name: string;
+  position: string;
+  url: string;
+  startDate: string;
+  endDate: string | null;
+  summary: string;
+  highlights: string[];
+}
+export interface Volunteer {
+  organization: string;
+  position: string;
+  url: string;
+  startDate: string;
+  endDate: string | null;
+  summary: string;
+  highlights: string[];
+}
+export interface Education {
+  institution: string;
+  url: string;
+  area: string;
+  studyType: string;
+  startDate: string;
+  endDate: string;
+  score: string;
+  courses: string[];
+}
+export interface Award {
+  title: string;
+  date: string;
+  awarder: string;
+  summary: string;
+}
+export interface Certificate {
+  name: string;
+  date: string;
+  issuer: string;
+  url: string;
+}
+export interface Publication {
+  name: string;
+  publisher: string;
+  releaseDate: string;
+  url: string;
+  summary: string;
+}
+export interface Skill {
+  name: string;
+  level: string;
+  keywords: string[];
+}
+export interface Language {
+  language: string;
+  fluency: string;
+}
+export interface Interest {
+  name: string;
+  keywords: string[];
+}
+export interface Reference {
+  name: string;
+  reference: string;
+}
 export interface CvData {
-  basics: {
-    name: string;
-    label: string;
-    image: string;
-    email: string;
-    phone: string;
-    url: string;
-    summary: string;
-    location: {
-      address: string;
-      postalCode: string;
-      city: string;
-      country: string;
-      countryCode: string;
-      region: string;
-    };
-    profiles: {
-      network: string;
-      username: string;
-      url: string;
-    }[];
-  };
-  work: {
-    name: string;
-    position: string;
-    url: string;
-    startDate: string;
-    endDate: string | null;
-    summary: string;
-    highlights: string[];
-  }[];
-  volunteer: {
-    organization: string;
-    position: string;
-    url: string;
-    startDate: string;
-    endDate: string;
-    summary: string;
-    highlights: string[];
-  }[];
-  education: {
-    institution: string;
-    url: string;
-    area: string;
-    studyType: string;
-    startDate: string;
-    endDate: string;
-    score: string;
-    courses: string[];
-  }[];
-  awards: {
-    title: string;
-    date: string;
-    awarder: string;
-    summary: string;
-  }[];
-  certificates: {
-    name: string;
-    date: string;
-    issuer: string;
-    url: string;
-  }[];
-  publications: {
-    name: string;
-    publisher: string;
-    releaseDate: string;
-    url: string;
-    summary: string;
-  }[];
-  skills: {
-    name: string;
-    level: string;
-    keywords: string[];
-  }[];
-  languages: {
-    language: string;
-    fluency: string;
-  }[];
-  interests: {
-    name: string;
-    keywords: string[];
-  }[];
-  references: {
-    name: string;
-    reference: string;
-  }[];
-  projects: Projects[];
-};
+  basics: Basics;
+  work: Work[];
+  volunteer: Volunteer[];
+  education: Education[];
+  awards: Award[];
+  certificates: Certificate[];
+  publications: Publication[];
+  skills: Skill[];
+  languages: Language[];
+  interests: Interest[];
+  references: Reference[];
+  projects: Project[];
+}

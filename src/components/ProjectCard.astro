@@ -1,8 +1,8 @@
 ---
 import { ICONS } from "@/icons/icons.astro";
 import LinkExtrernalIcon from "@/icons/Link-External.astro";
-import type { Projects } from "@/interfaces/CvData";
-const { project } = Astro.props as { project: Projects };
+import type { Project } from "@/interfaces/CvData";
+const { project } = Astro.props as { project: Project };
 const { name, description, image, highlights, url } = project;
 ---
 

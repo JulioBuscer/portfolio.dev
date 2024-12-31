@@ -4,11 +4,11 @@ import Section from "@/components/Minimalist/Section.astro";
 const { basics } = Astro.props;
 //console.log(basics);
 
-const { name, label, image, location, profiles, phone, email } = basics;
+const { name, label, image, location, profiles, email } = basics;
 const { city, region, countryCode } = location;
 
 import { ICONS } from "@/icons/icons.astro";
-const { MailSend, PhoneCall, World } = ICONS;
+const { World } = ICONS;
 ---
 
 <Section>
@@ -24,34 +24,6 @@ const { MailSend, PhoneCall, World } = ICONS;
         {city}, {region}. {countryCode}
       </span>
       <footer>
-        {
-          email && (
-            <a
-              href={`mailto:${email}`}
-              title={`Enviar un correo electrónico a ${name} al correo ${email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style="font-size: 0.85rem;"
-            >
-              <MailSend style="width: 24px; height: 24px" />
-              {email}
-            </a>
-          )
-        }
-        {
-          /*
-          phone && (
-            <a
-              href={`tel:${phone}`}
-              title={`Llamar por teléfono a ${name} al numero ${phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <PhoneCall />
-            </a>
-          )
-          */
-        }
         {
           profiles.map(
             ({
@@ -80,7 +52,7 @@ const { MailSend, PhoneCall, World } = ICONS;
                   {username}
                 </a>
               );
-            }
+            },
           )
         }
       </footer>
