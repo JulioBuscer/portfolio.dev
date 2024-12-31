@@ -121,14 +121,9 @@ export const cv: CvData = {
   ],
   skills: [
     {
-      name: "Frameworks",
-      level: "Advanced",
-      keywords: ["Next.js", "React", "Astro", "JSF"],
-    },
-    {
       name: "Frontend",
       level: "Advanced",
-      keywords: ["HTML", "CSS", "JavaScript"],
+      keywords: ["React", "Next.js", "Astro", "JSF", "JavaScript", "CSS", "HTML"],
     },
     {
       name: "Backend",

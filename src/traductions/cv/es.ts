@@ -103,45 +103,40 @@ export const cv: CvData = {
   ],
   certificates: [
     {
-      name: "Certificate",
+      name: "Certificado",
       date: "2021-11-07",
-      issuer: "Company",
+      issuer: "Empresa",
       url: "https://certificate.com",
     },
   ],
   publications: [
     {
-      name: "Publication",
-      publisher: "Company",
+      name: "Publicación",
+      publisher: "Empresa",
       releaseDate: "2014-10-01",
       url: "https://publication.com",
-      summary: "Description…",
+      summary: "Descripción...",
     },
   ],
   skills: [
     {
-      name: "Frameworks",
-      level: "Advanced",
-      keywords: ["Next.js", "React", "Astro", "JSF"],
-    },
-    {
       name: "Frontend",
-      level: "Advanced",
-      keywords: ["HTML", "CSS", "JavaScript"],
+      level: "Avanzado",
+      keywords: ["React", "Next.js", "Astro", "JSF", "JavaScript", "CSS", "HTML"],
     },
     {
       name: "Backend",
-      level: "Advanced",
+      level: "Avanzado",
       keywords: ["Spring Boot", "Java", "Node.js",],
     },
     {
       name: "Bases de Datos",
-      level: "Advanced",
+      level: "Avanzado",
       keywords: ["SQL Server", "MySQL", "MongoDB"],
     },
     {
       name: "DevOps",
-      level: "Advanced",
+      level: "Avanzado",
       keywords: ["GitHub"],
     },
   ],
