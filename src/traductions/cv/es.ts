@@ -137,7 +137,7 @@ export const cv: CvData = {
     {
       name: "DevOps",
       level: "Avanzado",
-      keywords: ["GitHub"],
+      keywords: ["GitHub", "Jira", "Confluence"],
     },
   ],
   languages: [

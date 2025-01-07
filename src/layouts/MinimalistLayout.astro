@@ -35,7 +35,7 @@ const { currentLocale } = Astro;
     <title>{title}</title>
   </head>
   <body>
-    <nav class="flex flex-row gap-x-10 opacity-90 py-5">
+    <nav class="flex flex-row gap-x-10 opacity-90 py-5 no-print">
       <a class="px-2 flex justify-center items-center" href={portfolio_URL}
         >{portfolio}</a
       >
@@ -46,6 +46,14 @@ const { currentLocale } = Astro;
 </html>
 
 <style>
+  :root {
+    @media print {
+      .no-print {
+        display: none;
+      }
+    }
+  }
+
   nav {
     justify-content: space-around;
   }

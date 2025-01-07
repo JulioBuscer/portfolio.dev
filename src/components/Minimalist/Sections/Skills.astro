@@ -21,6 +21,8 @@ import NodeJsIcon from "@/icons/NodeJs.astro";
 import MongoDBIcon from "@/icons/MongoDB.astro";
 import SpringBootIcon from "@/icons/SpringBootIcon.astro";
 import NextJsIcon from "@/icons/NextJsIcon.astro";
+import Jira from "@/icons/Jira.astro";
+import Confluence from "@/icons/Confluence.astro";
 
 const TAGS = [
   { name: "JSF", class: "bg-black text-white", icon: JSFIcon },
@@ -38,6 +40,8 @@ const TAGS = [
   { name: "MongoDB", class: "bg-black text-white", icon: MongoDBIcon },
   { name: "Spring Boot", class: "bg-black text-white", icon: SpringBootIcon },
   { name: "Next.js", class: "bg-black text-white", icon: NextJsIcon },
+  { name: "Jira", class: "bg-black text-white", icon: Jira },
+  { name: "Confluence", class: "bg-black text-white", icon: Confluence },
 ];
 ---
 
@@ -49,8 +53,8 @@ const TAGS = [
         return (
           <li class="skill">
             <article>
-              <h4>{name}</h4>
-              <ul class="tecnologias">
+              <h4 class="font-semibold">{name}</h4>
+              <div class="tecnologias">
                 {keywords.map((keyword) => {
                   //creamos la tag de la skill
                   var tag;
@@ -61,13 +65,13 @@ const TAGS = [
                     }
                   }
                   return (
-                    <li class="tecnologia">
+                    <div class="tecnologia">
                       {tag && <tag.icon class="size-5" />}
                       <span style="margin-left: 5px;">{keyword}</span>
-                    </li>
+                    </div>
                   );
                 })}
-              </ul>
+              </div>
             </article>
           </li>
         );
@@ -77,8 +81,13 @@ const TAGS = [
 </Section>
 
 <style>
+  article {
+    display: flex;
+  }
+
   .skills {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
     font-size: medium;
