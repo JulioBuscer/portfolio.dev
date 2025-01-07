@@ -127,7 +127,7 @@ export const cv: CvData = {
     {
       name: "Backend",
       level: "Avanzado",
-      keywords: ["Spring Boot", "Java", "Node.js",],
+      keywords: ["Spring", "Java", "Node.js",],
     },
     {
       name: "Bases de Datos",
@@ -142,12 +142,12 @@ export const cv: CvData = {
   ],
   languages: [
     {
-      language: "Español",
-      fluency: "Nativo",
+      language: "Ingles",
+      fluency: "B2",
     },
     {
-      language: "English",
-      fluency: "B2",
+      language: "Español",
+      fluency: "Nativo",
     },
   ],
   interests: [
@@ -190,7 +190,7 @@ export const cv: CvData = {
       endDate: "2024-11-01",
       description:
         "Colaborador en el desarrollo Frontend de la pagina oficial de la empresa educativa educem. Elaborada con React y Material UI",
-      highlights: ["React", "CSS", "TypeScript", "MUI"],
+      highlights: ["Next.js", "CSS", "TypeScript", "MUI"],
       url: "https://educem.mx/",
       image: "/projects/Educem.webp",
     },

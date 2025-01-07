@@ -47,9 +47,15 @@ const { currentLocale } = Astro;
 
 <style>
   :root {
+    .print{
+      display: none;
+    }
     @media print {
       .no-print {
         display: none;
+      }
+      .print{
+        display: unset;
       }
     }
   }

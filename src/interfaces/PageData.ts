@@ -26,6 +26,7 @@ export type Nav = {
 
 export type Section = {
     about: string;
+    languages: string;
     skills: string;
     experience: string;
     projects: string;

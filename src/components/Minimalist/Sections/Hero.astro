@@ -1,13 +1,15 @@
 ---
 import Section from "@/components/Minimalist/Section.astro";
 //Obtendremos los datos del CV desde parametros enviados por el servidor
-const { basics } = Astro.props;
+const { basics, t_languages } = Astro.props;
 //console.log(basics);
 
-const { name, label, image, location, profiles, email } = basics;
+const { name, label, image, location, profiles } = basics as Basics;
 const { city, region, countryCode } = location;
+const { languages } = Astro.props as { languages: Language[] };
 
 import { ICONS } from "@/icons/icons.astro";
+import type { Basics, Language, Profile } from "@/interfaces/CvData";
 const { World } = ICONS;
 ---
 
@@ -19,26 +21,40 @@ const { World } = ICONS;
     <div class="info">
       <h1>{name}</h1>
       <h2>{label}</h2>
+      
+      <span>
+        <p class="flex flex-row gap-x-2">
+          <span class="font-semibold">{t_languages}:</span>
+          {languages.map(({ language, fluency }, index) => (
+            <span>
+              {language} - {fluency} {index < languages.length - 1 && <span>|</span>}
+            </span>
+          ))}
+        </p>
+      </span>
       <span>
         <World />
         {city}, {region}. {countryCode}
       </span>
+      
       <footer>
         {
-          profiles.map(
-            ({
-              network,
-              url,
-              username,
-            }: {
-              network: string;
-              url: string;
-              username: string;
-            }) => {
-              const Icon = ICONS[network];
-              return (
+          profiles.map(({ network, url, username }) => {
+            const Icon = ICONS[network];
+            return (
+            <div class="print">
+              <p class="flex flex-row px-1 items-center gap-x-2">
+                {Icon ? (
+                  <Icon class="size-5"/>
+                ) : (
+                  <World class="size-5"/>
+                )}
+                {username}
+              </p>
+            </div>
+              <div class="no-print">
                 <a
-                  href={url}
+                  href={url}  
                   title={`Ir a ${name} en ${network}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -51,9 +67,9 @@ const { World } = ICONS;
                   )}
                   {username}
                 </a>
-              );
-            },
-          )
+              </div>
+            );
+          })
         }
       </footer>
     </div>
@@ -97,13 +113,13 @@ const { World } = ICONS;
 
   footer {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     gap: 0.25rem;
     margin-top: 5px;
   }
   footer a {
     color: #777;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #eee;

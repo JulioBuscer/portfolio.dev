@@ -48,6 +48,7 @@ export const ui: PageData = {
         },
         'section': {
             'about': 'Sobre mi',
+            'languages': 'Idiomas',
             'skills': 'Habilidades',
             'experience': 'Experiencia',
             'projects': 'Proyectos',
@@ -84,6 +85,7 @@ export const ui: PageData = {
         },
         'section': {
             'about': 'About me',
+            'languages': 'Languages',
             'skills': 'Skills',
             'experience': 'Experience',
             'projects': 'Projects',

@@ -11,12 +11,13 @@ import KeyboardManager from "@/components/KeyboardManager.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
 import type { CvData } from "@/interfaces/CvData";
 import type { Section, Page } from "@/interfaces/PageData";
+import Languages from "../Minimalist/Sections/Languages.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const CV = t("cv");
-const { basics, skills, work, education, projects } = CV as CvData;
+const { basics, skills, work, education, projects, languages } = CV as CvData;
 
 const PAGE = t("page");
 const { title, description } = PAGE as Page;
@@ -24,26 +25,26 @@ const { title, description } = PAGE as Page;
 const SECTIONS = t("section");
 const {
   about: t_about,
+  languages: t_languages,
   skills: t_skills,
   experience: t_experience,
   education: t_education,
   projects: t_projects,
 } = SECTIONS as Section;
 
-
 const currentYear = new Date().getFullYear();
 const startYear = work?.[work.length - 1]?.startDate
   ? new Date(work[work.length - 1].startDate).getFullYear()
   : currentYear;
 
-  const experienceYears = currentYear - startYear;
+const experienceYears = currentYear - startYear;
 ---
 
 <MinimalistLayout title={title} description={description}>
   <main>
-    <Hero basics={basics} />
+    <Hero basics={basics} languages={languages} t_languages={t_languages} />
     <About basics={basics} title={t_about} experienceYears={experienceYears} />
-    <Skills skills={skills} title={t_skills}  />
+    <Skills skills={skills} title={t_skills} />
     <Experience work={work} title={t_experience} />
     <Education education={education} title={t_education} />
     <Projects projects={projects} title={t_projects} />
@@ -58,5 +59,12 @@ const startYear = work?.[work.length - 1]?.startDate
     padding-top: 2rem;
     margin: auto;
     width: 100%;
+  }
+
+  @media print {
+    main {
+      padding: 0;
+      margin: 0;
+    }
   }
 </style>
