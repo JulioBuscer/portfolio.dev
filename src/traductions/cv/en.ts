@@ -48,7 +48,7 @@ export const cv: CvData = {
         "Work in team by project",
         "Collaboration with executives and the production area to know the requirements and business specificities around the management of customer offers, analysis and risks",
         "Implementing modern technologies for the continuous improvement and evolution of the company and its customers",
-        "Implementing and upgrading application modules under the guidance of the Porject Manager",
+        "Implementing and upgrading application modules under the guidance of the Project Manager",
         "Effective coding of software changes and enhancements based on concrete specifications",
         "Development and presentation of findings and solutions to senior executives and stakeholders",
       ],
@@ -65,7 +65,7 @@ export const cv: CvData = {
         "Collaboration with the CEO and the Marketing department to understand the requirements and specifications of business in the management of customer offers, risks and analysis",
         "Collaboration with the production area to understand the requirements and business specificities around customer offerings, analysis and risk management",
         "Troubleshooting using the Web stack required by the company (Java, Netbeans IDE, SQL Server, Payara Server)",
-        "Implementation and update of application modules under the direction of the Porject Manager",
+        "Implementation and update of application modules under the direction of the Project Manager",
         "Effective coding of software changes and enhancements based on concrete specifications",
         "Development and presentation of findings and solutions to senior executives and stakeholders",
       ],
@@ -138,7 +138,7 @@ export const cv: CvData = {
     {
       name: "DevOps",
       level: "Advanced",
-      keywords: ["GitHub","Jira","Confluence"],
+      keywords: ["GitHub", "Jira", "Confluence"],
     },
   ],
   languages: [
@@ -190,7 +190,7 @@ export const cv: CvData = {
       endDate: "2024-11-01",
       description:
         "Collaborator in the development of the official website of the educational company educem. Developed with React and Material UI",
-      highlights: ["Next.js", "CSS", "TypeScript", "MUI"],
+      highlights: ["Next js", "TypeScript", "MUI", "CSS",],
       url: "https://educem.mx/",
       image: "/projects/Educem.webp",
     },
