@@ -3,6 +3,7 @@ export interface Project {
   startDate: string;
   endDate: string | null;
   description: string;
+  summary?: string;
   highlights: string[];
   url: string;
   image: string;

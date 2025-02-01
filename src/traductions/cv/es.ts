@@ -45,29 +45,23 @@ export const cv: CvData = {
       endDate: "",
       summary: "",
       highlights: [
-        "Trabajo en equipo, por proyecto",
-        "Colaboración con Ejecutivos Directivos y el area de producción para conocer los requisitos y las especificaciones empresariales en torno a la gestión de las ofertas a cliente, análisis y riesgos",
-        "Implementando tecnologías modernas para la mejora continua y evolución de la empresa y sus clientes",
-        "Implementación y actualización de módulos de aplicación bajo la dirección del Project Manager",
-        "Codificación eficaz de cambios y mejoras del software en base a especificaciones concretas",
-        "Desarrollo y presentación de conclusiones y soluciones a altos ejecutivos y partes interesadas",
-      ],
+        "Lideré el desarrollo de la plataforma oficial y sistemas de diplomas automatizados, integrando tecnologías como Next.js, TypeScript, QR/PDF dinámicos y un clasificador de documentos basado en IA para optimizar procesos académicos.",
+        "Implementé seguridad robusta(roles, permisos y cifrado) y sincronización de datos mediante APIs RESTful, garantizando integridad en plataformas internas y externas.",
+        "Impulsé la transformación digital del corporativo, colaborando con equipos multidisciplinarios para modernizar aplicaciones existentes, optimizar flujos administrativos y brindar soporte técnico continuo."
+      ]
     },
     {
       name: "Novatec Group",
       position: "Desarrollador Java FullStack",
-      url: "https://company.com",
+      url: "https://novatecgroup.com/es/",
       startDate: "2021-07-01",
       endDate: "2024-05-24",
       summary: "",
       highlights: [
-        "Trabaje tanto a nivel independiente como en equipo",
-        "Colaboración con Ejecutivos Directivos y el area de producción para conocer los requisitos y las especificaciones empresariales en torno a la gestión de las ofertas a cliente, análisis y riesgos",
-        "Resolución de problemas utilizando el stack Web requerido por la empresa (Java, IDE Netbeans, SQL Server, Payara Server)",
-        "Implementación y actualización de módulos de aplicación bajo la dirección del Project Manager",
-        "Codificación eficaz de cambios y mejoras del software en base a especificaciones concretas",
-        "Desarrollo y presentación de conclusiones y soluciones a altos ejecutivos y partes interesadas",
-      ],
+        "Lideré el desarrollo de 'Offer Form', una herramienta para centralizar el seguimiento de ofertas comerciales, integrando validación de costos con el CRM y generación de reportes exportables (JSF, Java, SQL Server).",
+        "Optimicé procesos de trazabilidad, implementando seguimiento automatizado que redujo tiempos de análisis de riesgos y detectó inconsistencias en propuestas.",
+        "Colaboré con ejecutivos y equipos multidisciplinarios para alinear funcionalidades técnicas con objetivos estratégicos, asegurando entregas en plazos ajustados.",
+      ]
     },
   ],
   volunteer: [
@@ -164,11 +158,38 @@ export const cv: CvData = {
   ],
   projects: [
     {
+      name: "Diplomas (Educem,Tecmas,Firenze)",
+      startDate: "2024-11-01",
+      endDate: "2025-01-09",
+      summary: "Sistema para gestionar los diplomas de los estudiantes de Educem, Tecmas y Firenze.",
+      description:
+        `
+        Desarrollé una plataforma para gestionar los diplomas de los estudiantes de Educem, Tecmas y Firenze. La plataforma permite generar diplomas automáticamente a partir de plantillas asociadas a cursos y consultarlos en línea. Utilicé Next.js, TypeScript, MUI, y tecnologías QR y PDF para asegurar la autenticidad y dinamismo de los diplomas. Además, implementé un sistema de roles y permisos para gestionar usuarios y sincronizar diplomas con plataformas externas
+        `,
+      highlights: ["Next js", "TypeScript", "MUI", "CSS", "QR", "PDF"],
+      url: "https://diplomas.educem.mx/",
+      image: "/projects/Diplomas Multimarca.webp",
+    },
+    {
+      name: "Educem - Pagina Oficial",
+      startDate: "2024-08-01",
+      endDate: "2024-11-01",
+      summary: "Plataforma dinámica de información para Educem.",
+      description:
+        `
+        Educem requería modernizar su sitio web para mejorar su funcionalidad y alinearlo con su identidad institucional. El desafío fue automatizar el manejo de datos y optimizar la experiencia de usuario. Implementé el diseño con Next.js, TypeScript y Material UI, integrando datos dinámicos desde una API. El resultado fue un sitio eficiente y funcional que mejoró la gestión del contenido digital de la empresa.
+        `,
+      highlights: ["Next js", "TypeScript", "MUI", "CSS",],
+      url: "https://educem.mx/",
+      image: "/projects/Educem.webp",
+    },
+    {
       name: "Offer Form",
       startDate: "2022-01-01",
       endDate: null,
+      summary: "Herramienta de seguimiento de ofertas.",
       description:
-        "Producto desarrollado para uso interno de la empresa Novatec, da solución a la estimación y seguimiento de proyectos ofertados a sus clientes. Cuenta con reportes que apoyan y agilizan la toma de decisiones",
+        `La empresa Novatec necesitaba una herramienta para centralizar el seguimiento de ofertas. Por lo que participe en el desarrollo de la herramienta Offer Form, conectando propuestas con el CRM para validar costos y comparar presupuestos de venta, producción y costos reales. Propuse mejoras de arquitectura, implementé control de usuarios, seguridad con tokens y reportes exportables. La herramienta redujo el tiempo de seguimiento de semanas a segundos, estandarizó procesos y mejoró la toma de decisiones estratégicas.`,
       highlights: ["JSF", "XHTML", "CSS", "Java", "JavaScript", "SQL Server"],
       url: "",
       image: "/projects/Project-OfferForm.webp",
@@ -177,22 +198,12 @@ export const cv: CvData = {
       name: "Chat IA Local",
       startDate: "2024-06-20",
       endDate: null,
+      summary: "Aplicación de chat con IA que opera 100% en el navegador usando Web LLM y Web Workers, optimizada para entornos de recursos limitados.",
       description:
-        "Proyecto personal, para implementar modelos de IA desde el navegador utilizando recursos del cliente, implementando la librería Web LLM",
+        "Creé un Chat IA local como proyecto personal, implementando modelos de IA directamente en el navegador usando Web LLM y recursos del cliente. El principal desafío fue optimizar el rendimiento en entornos con recursos limitados. Utilicé HTML, CSS, JavaScript, Web LLM y Web Workers para lograr un procesamiento eficiente y una experiencia fluida. El resultado fue una aplicación funcional que opera sin servidores externos, mostrando el potencial de la IA local.",
       highlights: ["HTML", "CSS", "JavaScript", "Web LLM", "Web Workers"],
       url: "https://chat-ia-local.netlify.app/",
       image: "/projects/ChatIALocal-preview.avif",
-    },
-
-    {
-      name: "Educem",
-      startDate: "2024-08-01",
-      endDate: "2024-11-01",
-      description:
-        "Colaborador en el desarrollo Frontend de la pagina oficial de la empresa educativa educem. Elaborada con React y Material UI",
-      highlights: ["Next js", "TypeScript", "MUI", "CSS",],
-      url: "https://educem.mx/",
-      image: "/projects/Educem.webp",
     },
   ],
 };

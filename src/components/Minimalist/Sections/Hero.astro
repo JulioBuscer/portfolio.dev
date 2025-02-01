@@ -16,7 +16,7 @@ const { World } = ICONS;
 <Section>
   <div class="container">
     <figure>
-      <img src={image} alt={name} />
+      <img src={image} alt={name} class="no-print" />
     </figure>
     <div class="info">
       <h1>{name}</h1>
@@ -33,7 +33,6 @@ const { World } = ICONS;
         </p>
       </span>
       <span>
-        <World />
         {city}, {region}. {countryCode}
       </span>
       
@@ -45,9 +44,9 @@ const { World } = ICONS;
             <div class="print">
               <p class="flex flex-row px-1 items-center gap-x-2">
                 {Icon ? (
-                  <Icon class="size-5"/>
+                  <Icon class="size-4"/>
                 ) : (
-                  <World class="size-5"/>
+                  <World class="size-4"/>
                 )}
                 {username}
               </p>
@@ -61,7 +60,7 @@ const { World } = ICONS;
                   style="font-size: 0.85rem"
                 >
                   {Icon ? (
-                    <Icon style="width: 24px; height: 24px; padding-right:0.2rem" />
+                    <Icon style="width: 20px; height: 20px; padding-right:0.2rem" />
                   ) : (
                     <World />
                   )}

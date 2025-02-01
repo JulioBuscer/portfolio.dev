@@ -40,16 +40,15 @@ const date = startDate_short + " - " + endDate_short;
   <header>
     <div>
       <h3 style="font-weight: bold; font-style: italic; ">{title}</h3>
-      <h4>{position}</h4>
+      <div class="info">
+        <h4>{position} {description}</h4>
+        <time>
+          {date}
+        </time>
+      </div>
     </div>
-    <time>
-      {date}
-    </time>
   </header>
   <footer>
-    <p>
-      {description}
-    </p>
     {
       highlights && (
         <ul>
@@ -84,10 +83,16 @@ const date = startDate_short + " - " + endDate_short;
   }
 
   header {
-    display: flex;
+    display: block;
     justify-content: space-between;
     margin-bottom: 4px;
     align-items: flex-start;
+  }
+
+  header .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   header time {

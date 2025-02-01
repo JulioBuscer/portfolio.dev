@@ -45,30 +45,23 @@ export const cv: CvData = {
       endDate: "",
       summary: "",
       highlights: [
-        "Work in team by project",
-        "Collaboration with executives and the production area to know the requirements and business specificities around the management of customer offers, analysis and risks",
-        "Implementing modern technologies for the continuous improvement and evolution of the company and its customers",
-        "Implementing and upgrading application modules under the guidance of the Project Manager",
-        "Effective coding of software changes and enhancements based on concrete specifications",
-        "Development and presentation of findings and solutions to senior executives and stakeholders",
-      ],
+        "Led development of the official platform and automated diploma systems, integrating Next.js, TypeScript, dynamic QR/PDFs, and an AI-based document classifier to optimize academic processes.",
+        "Implemented robust security (roles, permissions, and encryption) and data synchronization via RESTful APIs, ensuring integrity across internal and external platforms.",
+        "Drove digital transformation of the corporation, collaborating with multidisciplinary teams to modernize existing applications, optimize administrative workflows, and provide ongoing technical support."
+      ]
     },
     {
       name: "Novatec Group",
-      position: "FullStack developer",
-      url: "https://company.com",
+      position: "FullStack Java JSF developer",
+      url: "https://novatecgroup.com/es/",
       startDate: "2021-07-01",
       endDate: "2024-05-24",
       summary: "",
       highlights: [
-        "Worked independently or in a team",
-        "Collaboration with the CEO and the Marketing department to understand the requirements and specifications of business in the management of customer offers, risks and analysis",
-        "Collaboration with the production area to understand the requirements and business specificities around customer offerings, analysis and risk management",
-        "Troubleshooting using the Web stack required by the company (Java, Netbeans IDE, SQL Server, Payara Server)",
-        "Implementation and update of application modules under the direction of the Project Manager",
-        "Effective coding of software changes and enhancements based on concrete specifications",
-        "Development and presentation of findings and solutions to senior executives and stakeholders",
-      ],
+        "Led development of 'Offer Form', a tool for centralizing commercial offer tracking, integrating cost validation with CRM and generating exportable reports (JSF, Java, SQL Server).",
+        "Optimized traceability processes, implementing automated tracking that reduced risk analysis times and detected inconsistencies in proposals.",
+        "Collaborated with executives and multidisciplinary teams to align technical features with strategic objectives, ensuring timely deliveries."
+      ]
     },
   ],
   volunteer: [
@@ -165,34 +158,52 @@ export const cv: CvData = {
   ],
   projects: [
     {
+      name: "Diplomas (Educem,Tecmas,Firenze)",
+      startDate: "2024-11-01",
+      endDate: "2025-01-09",
+      summary: "Digital diploma management system for Educem, Tecmas, and Firenze students.",
+      description:
+        `
+        Developed a digital platform for educational companies, allowing the generation of diplomas automatically based on course templates and online access to diplomas. Utilized Next.js, TypeScript, MUI, and QR and PDF technologies for ensuring the authenticity and dynamic nature of diplomas. Implemented a role and permission system to manage users and synchronize diplomas with external platforms.
+        `,
+      highlights: ["Next js", "TypeScript", "MUI", "CSS", "QR", "PDF"],
+      url: "https://educem.mx/",
+      image: "/projects/Diplomas Multimarca.webp",
+    },
+    {
+      name: "Educem (Official Website)",
+      startDate: "2024-08-01",
+      endDate: "2024-11-01",
+      summary: "Dynamic information platform for Educem.",
+      description:
+        `
+        Educem required a modernization of its website to improve its functionality and align it with its institutional identity. The challenge was to automate the management of data and optimize the user experience. I implemented the design with Next.js, TypeScript, and Material UI, integrating dynamic data from an API. The result was an efficient and functional site that improved the management of digital content for the company.
+        `,
+      highlights: ["Next js", "TypeScript", "MUI", "CSS",],
+      url: "https://educem.mx/",
+      image: "/projects/Educem.webp",
+    }, {
       name: "Offer Form",
       startDate: "2022-01-01",
-      endDate: null,
+      endDate: null,      
+      summary: "Offer tracking tool.",
       description:
-        "Product developed for internal use of the company Novatec, provides a solution to the estimation and monitoring of projects offered to its customers. It has reports that support and speed up the decision making process.",
-      highlights: ["JSF", "XHTML", "CSS", "Java", "JavaScript", "SQLServer"],
+        `I developed 'Offer Form', a tool to centralize the tracking of offers in Novatec, connecting proposals with the CRM to validate costs and compare budgets for sales, production and real costs. I proposed architectural improvements, implemented user control, security with tokens and exportable reports. The tool reduced the tracking time from weeks to seconds, standardized processes and improved strategic decision making.`,
+      highlights: ["JSF", "XHTML", "CSS", "Java", "JavaScript", "SQL Server"],
       url: "",
       image: "/projects/Project-OfferForm.webp",
     },
     {
-      name: "AI Chat Local",
+      name: "Local AI Chat",
       startDate: "2024-06-20",
       endDate: null,
+      summary: "Local AI Chat is an application that operates 100% in the browser using Web LLM and Web Workers, optimized for resource-constrained environments.",
       description:
-        "Personal project, to implement AI models from the browser using client resources, implementing the Web LLM library.",
+        "I created a local AI chat as a personal project, implementing AI models directly in the browser using Web LLM and client-side resources. The main challenge was optimizing performance in resource-constrained environments. I used HTML, CSS, JavaScript, Web LLM and Web Workers to achieve efficient processing and a smooth user experience. The result was a functional application that operates without external servers, showcasing the potential of local AI.",
       highlights: ["HTML", "CSS", "JavaScript", "Web LLM", "Web Workers"],
       url: "https://chat-ia-local.netlify.app/",
       image: "/projects/ChatIALocal-preview.avif",
     },
-    {
-      name: "Educem",
-      startDate: "2024-08-01",
-      endDate: "2024-11-01",
-      description:
-        "Collaborator in the development of the official website of the educational company educem. Developed with React and Material UI",
-      highlights: ["Next js", "TypeScript", "MUI", "CSS",],
-      url: "https://educem.mx/",
-      image: "/projects/Educem.webp",
-    },
+
   ],
 };

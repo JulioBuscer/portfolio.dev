@@ -1,6 +1,6 @@
 ---
 import { ICONS } from "@/icons/icons.astro";
-import LinkExtrernalIcon from "@/icons/Link-External.astro";
+import LinkExternalIcon from "@/icons/Link-External.astro";
 import type { Project } from "@/interfaces/CvData";
 const { project } = Astro.props as { project: Project };
 const { name, description, image, highlights, url } = project;
@@ -50,7 +50,7 @@ const { name, description, image, highlights, url } = project;
                                 class="flex gap-x-2 flex-row"
                             >
                                 {name}
-                                <LinkExtrernalIcon class="size-5" />
+                                <LinkExternalIcon class="size-5" />
                             </a>
                         ) : (
                             name

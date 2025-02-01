@@ -1,38 +1,28 @@
 ---
 import Section from "@/components/Minimalist/Section.astro";
-//import { education } from "@cv";
-const { education ,title} = Astro.props;
+
+import type { CvData } from "@/interfaces/CvData.ts";
+
+const { title } = Astro.props;
+const { education } = Astro.props as CvData;
+
 import CardTime from "@/components/CardTime.astro";
 ---
 
 <Section title={title}>
   <ul>
     {
-      education.map(
-        ({
-          institution,
-          area,
-          studyType,
-          startDate,
-          endDate,
-        }: {
-          institution: string;
-          area: string;
-          studyType: string;
-          startDate: string;
-          endDate: string;
-        }) => (
-          <li>
-            <CardTime
-              title={institution}
-              position={studyType}
-              description={area}
-              startDate={startDate}
-              endDate={endDate}
-            />
-          </li>
-        )
-      )
+      education.map(({ institution, area, studyType, startDate, endDate }) => (
+        <li>
+          <CardTime
+            title={institution}
+            position={studyType}
+            description={area}
+            startDate={startDate}
+            endDate={endDate}
+          />
+        </li>
+      ))
     }
   </ul>
   <style>
