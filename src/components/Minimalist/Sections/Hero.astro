@@ -16,7 +16,8 @@ const { World } = ICONS;
 <Section>
   <div class="container">
     <figure>
-      <img src={image} alt={name} class="no-print" />
+      <img src={image} alt={name} 
+      />
     </figure>
     <div class="info">
       <h1>{name}</h1>
@@ -107,7 +108,8 @@ const { World } = ICONS;
     object-fit: cover;
     min-width: 32px;
     width: 128px;
-    border-radius: 100%;
+    border-radius: 8px;
+    /* filter: drop-shadow(0px 0px 10px #000); */
   }
 
   footer {
@@ -142,6 +144,12 @@ const { World } = ICONS;
     gap: 0.25rem;
     font-size: 0.85rem;
     letter-spacing: -0.05rem;
+  }
+
+  figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media only screen and (max-width: 500px) {
