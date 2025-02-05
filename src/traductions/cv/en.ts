@@ -3,7 +3,7 @@ export const cv: CvData = {
   basics: {
     name: "Julio Bustamante",
     label: "Programmer & Developer Web",
-    image: "img/Perfil_5.webp",
+    image: "/img/Perfil_5.webp",
     email: "juliobuscer@gmail.com",
     phone: "+52 (477) 704-6131",
     url: "https://johndoe.com",
