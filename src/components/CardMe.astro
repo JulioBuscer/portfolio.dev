@@ -24,19 +24,10 @@ const { skills } = Astro.props as { skills: Skill[] };
 
 const { startYear } = Astro.props;
 
-const BGAvatar = "img/BGAvatar.webp";
+const BGAvatar = "/img/BGAvatar.webp";
 
-const imagen1 = "img/Perfil_4.webp";
-const imagen2 = "img/Perfil_5.webp";
-
-const numeroAleatorio = Math.random();
-let image;
-
-if (numeroAleatorio < 0.5) {
-  image = imagen1;
-} else {
-  image = imagen2;
-}
+const imagen1 = "/img/Perfil_4.webp";
+const imagen2 = "/img/Perfil_5.webp";
 
 const yearsExperience = getYearsExperience(startYear);
 ---
@@ -52,7 +43,7 @@ const yearsExperience = getYearsExperience(startYear);
     style={{ "background-image": `url(${BGAvatar})` }}
   >
     <div class="card-character-image">
-      <img src={image} alt={name} />
+      <div class="character-image"></div>
     </div>
     <div class="card-character-title">
       <h2>{name}</h2>
@@ -165,6 +156,16 @@ const yearsExperience = getYearsExperience(startYear);
     justify-content: center;
     height: 100%;
     min-width: 20vw;
+  }
+
+  .character-image {
+    max-height: 100%;
+    width: 100%;
+    background-image: url("/img/Perfil_4.webp");
+    transition: background-image 0.3s ease;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
   }
   .card-character-title {
     font-size: 1.75rem;
@@ -296,7 +297,11 @@ const yearsExperience = getYearsExperience(startYear);
         rgba(255, 255, 255, 1)
       );
     }
+    .character-image {
+      background-image: url("/img/Perfil_5.webp");
+    }
   }
+
   @media screen and (max-width: 740px) {
     .card {
       flex-direction: column;
@@ -355,9 +360,12 @@ const yearsExperience = getYearsExperience(startYear);
     .card-character-image {
       border-radius: 0.5rem;
 
-      img {
-        max-height: 30vh;
+      .character-image {
+        min-height: 30vh;
+        max-height: 50vh;
         border-radius: 0.5rem;
+        background-position: top;
+        background-size: contain;
       }
     }
     .card-skills-item {

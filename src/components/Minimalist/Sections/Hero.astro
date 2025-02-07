@@ -43,7 +43,7 @@ const { World } = ICONS;
             const Icon = ICONS[network];
             return (
             <div class="print">
-              <p class="flex flex-row px-1 items-center gap-x-2">
+              <p class="flex flex-row px-0 items-center gap-x-2">
                 {Icon ? (
                   <Icon class="size-4"/>
                 ) : (
@@ -159,6 +159,18 @@ const { World } = ICONS;
     }
     .container {
       display: block;
+    }
+  }
+
+  @media print {
+    .info{
+      gap: 0;
+    }
+    footer{
+      margin: 0;
+      a{
+        padding: 0;
+      }
     }
   }
 </style>

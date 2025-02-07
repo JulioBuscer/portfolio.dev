@@ -29,7 +29,9 @@ const {
   skills: t_skills,
   experience: t_experience,
   education: t_education,
-  projects: t_projects,
+  otherProjects: t_projects,
+  featuredProjects: t_featuredProjects,
+  
 } = SECTIONS as Section;
 
 const currentYear = new Date().getFullYear();
@@ -45,9 +47,18 @@ const experienceYears = currentYear - startYear;
     <Hero basics={basics} languages={languages} t_languages={t_languages} />
     <About basics={basics} title={t_about} experienceYears={experienceYears} />
     <Skills skills={skills} title={t_skills} />
-    <Experience work={work} title={t_experience} />
+    <Experience
+      work={work}
+      projects={projects}
+      title={t_experience}
+      featuredProjects={t_featuredProjects}
+    />
     <Education education={education} title={t_education} />
-    <Projects projects={projects} title={t_projects} />
+    <Projects
+      projects={projects.filter((p) => p.id_work == null || !p.featured)}
+      work={work}
+      title={t_projects}
+    />
   </main>
 
   <KeyboardManager />

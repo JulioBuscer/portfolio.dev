@@ -4,9 +4,12 @@ export interface Project {
   endDate: string | null;
   description: string;
   summary?: string;
-  highlights: string[];
+  highlights?: string[];
+  technologies?: string[];
   url: string;
   image: string;
+  id_work?: number;
+  featured?: boolean;
 }
 
 export interface Location {
@@ -34,6 +37,7 @@ export interface Basics {
   profiles: Profile[];
 }
 export interface Work {
+  id: number;
   name: string;
   position: string;
   url: string;

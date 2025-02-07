@@ -31,6 +31,9 @@ export type Section = {
     experience: string;
     projects: string;
     education: string;
+    featuredProjects: string;
+    otherProjects: string;
+    personalProject: string;
 }
 export interface Page {
     title: string;

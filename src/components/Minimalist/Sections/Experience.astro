@@ -1,9 +1,9 @@
 ---
 import Section from "../Section.astro";
 //import { work } from "@cv";
-const { title } = Astro.props;
+const { title, featuredProjects } = Astro.props;
 import type { CvData } from "@/interfaces/CvData.ts";
-const { work } = Astro.props as CvData;
+const { work, projects } = Astro.props as CvData;
 import CardTime from "@/components/CardTime.astro";
 ---
 
@@ -11,7 +11,16 @@ import CardTime from "@/components/CardTime.astro";
   <ul>
     {
       work.map(
-        ({ name, startDate, endDate, position, summary, highlights, url }) => (
+        ({
+          id,
+          name,
+          startDate,
+          endDate,
+          position,
+          summary,
+          highlights,
+          url,
+        }) => (
           <li class="py-2">
             <CardTime
               title={name}
@@ -20,9 +29,11 @@ import CardTime from "@/components/CardTime.astro";
               endDate={endDate ? endDate : undefined}
               description={summary}
               highlights={highlights}
+              projects={projects.filter((p) => p.id_work === id && p.featured)}
+              featuredProjects={featuredProjects}
             />
           </li>
-        )
+        ),
       )
     }
   </ul>
@@ -32,5 +43,13 @@ import CardTime from "@/components/CardTime.astro";
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+  @media print {
+    ul {
+      gap: 0px;
+    }
+    li {
+      padding: 0px;
+    }
   }
 </style>

@@ -6,42 +6,48 @@ const { title } = Astro.props;
 import type { CvData } from "@/interfaces/CvData.ts";
 const { skills } = Astro.props as CvData;
 
-import JSFIcon from "@/icons/JSF.astro";
+import AstroIcon from "@/icons/AstroIcon.astro";
+import Atlassian from "@/icons/Atlassian.astro";
+import AWS from "@/icons/AWS.astro";
+import Confluence from "@/icons/Confluence.astro";
+import CSSIcon from "@/icons/CSS.astro";
+import GitHubIcon from "@/icons/Github.astro";
+import HTMLIcon from "@/icons/html.astro";
 import JavaIcon from "@/icons/Java.astro";
 import JavaScriptIcon from "@/icons/JavaScript.astro";
-import CSSIcon from "@/icons/CSS.astro";
-import HTMLIcon from "@/icons/html.astro";
-import XHTMLIcon from "@/icons/XHTML.astro";
-import SQLServerIcon from "@/icons/SQLServer.astro";
-import MySQLIcon from "@/icons/MySQL.astro";
-import AstroIcon from "@/icons/AstroIcon.astro";
-import GitHubIcon from "@/icons/Github.astro";
-import ReactIcon from "@/icons/React.astro";
-import NodeJsIcon from "@/icons/NodeJs.astro";
-import MongoDBIcon from "@/icons/MongoDB.astro";
-import Spring from "@/icons/SpringIcon.astro";
-import NextJsIcon from "@/icons/NextJsIcon.astro";
 import Jira from "@/icons/Jira.astro";
-import Confluence from "@/icons/Confluence.astro";
+import JSFIcon from "@/icons/JSF.astro";
+import MongoDBIcon from "@/icons/MongoDB.astro";
+import MySQLIcon from "@/icons/MySQL.astro";
+import NextJsIcon from "@/icons/NextJsIcon.astro";
+import NodeJsIcon from "@/icons/NodeJs.astro";
+import Python from "@/icons/Python.astro";
+import ReactIcon from "@/icons/React.astro";
+import Spring from "@/icons/SpringIcon.astro";
+import SQLServerIcon from "@/icons/SQLServer.astro";
+import XHTMLIcon from "@/icons/XHTML.astro";
 
 const TAGS = [
-  { name: "JSF", class: "bg-black text-white", icon: JSFIcon },
-  { name: "Java", class: "bg-black text-white", icon: JavaIcon },
-  { name: "HTML", class: "bg-black text-white", icon: HTMLIcon },
-  { name: "XHTML", class: "bg-black text-white", icon: XHTMLIcon },
-  { name: "CSS", class: "bg-black text-white", icon: CSSIcon },
-  { name: "JavaScript", class: "bg-black text-white", icon: JavaScriptIcon },
-  { name: "SQL Server", class: "bg-black text-white", icon: SQLServerIcon },
-  { name: "MySQL", class: "bg-black text-white", icon: MySQLIcon },
   { name: "Astro", class: "bg-black text-white", icon: AstroIcon },
-  { name: "GitHub", class: "bg-black text-white", icon: GitHubIcon },
-  { name: "React", class: "bg-black text-white", icon: ReactIcon },
-  { name: "Node.Js", class: "bg-black text-white", icon: NodeJsIcon },
-  { name: "MongoDB", class: "bg-black text-white", icon: MongoDBIcon },
-  { name: "Spring", class: "bg-black text-white", icon: Spring },
-  { name: "Next.js", class: "bg-black text-white", icon: NextJsIcon },
-  { name: "Jira", class: "bg-black text-white", icon: Jira },
+  { name: "Atlassian", class: "bg-black text-white", icon: Atlassian },
+  { name: "AWS", class: "bg-black text-white", icon: AWS },
   { name: "Confluence", class: "bg-black text-white", icon: Confluence },
+  { name: "CSS", class: "bg-black text-white", icon: CSSIcon },
+  { name: "GitHub", class: "bg-black text-white", icon: GitHubIcon },
+  { name: "HTML", class: "bg-black text-white", icon: HTMLIcon },
+  { name: "Java", class: "bg-black text-white", icon: JavaIcon },
+  { name: "JavaScript", class: "bg-black text-white", icon: JavaScriptIcon },
+  { name: "Jira", class: "bg-black text-white", icon: Jira },
+  { name: "JSF", class: "bg-black text-white", icon: JSFIcon },
+  { name: "MongoDB", class: "bg-black text-white", icon: MongoDBIcon },
+  { name: "MySQL", class: "bg-black text-white", icon: MySQLIcon },
+  { name: "Next.js", class: "bg-black text-white", icon: NextJsIcon },
+  { name: "Node.Js", class: "bg-black text-white", icon: NodeJsIcon },
+  { name: "Python", class: "bg-black text-white", icon: Python },
+  { name: "React", class: "bg-black text-white", icon: ReactIcon },
+  { name: "Spring", class: "bg-black text-white", icon: Spring },
+  { name: "SQL Server", class: "bg-black text-white", icon: SQLServerIcon },
+  { name: "XHTML", class: "bg-black text-white", icon: XHTMLIcon },
 ];
 ---
 
@@ -52,7 +58,7 @@ const TAGS = [
       skills.map(({ name, keywords }) => {
         return (
           <li class="skill">
-            <h4 >{name}</h4>
+            <h4>{name}</h4>
             <ul class="tecnologias">
               {keywords.map((keyword, index) => {
                 //creamos la tag de la skill
@@ -67,7 +73,10 @@ const TAGS = [
                   <li class="tecnologia">
                     {tag && <tag.icon class="size-5 no-print" />}
                     <span style="margin-left: 5px;">
-                      {keyword} {index < keywords.length - 1 && <span class="print">|</span>}
+                      {keyword}{" "}
+                      {index < keywords.length - 1 && (
+                        <span class="print">|</span>
+                      )}
                     </span>
                   </li>
                 );
@@ -89,7 +98,6 @@ const TAGS = [
   .skill {
     /*border: solid 1px #333;*/
     padding: 0.1rem 0.25rem;
-    border-radius: 6px;
     display: flex;
     h4 {
       width: 12ch;
@@ -99,9 +107,20 @@ const TAGS = [
   @media screen and (max-width: 740px) {
     .skill {
       flex-direction: column;
+      padding: 0.1rem 0.25rem;
       h4 {
         width: auto;
       }
+    }
+
+    .tecnologia {
+      padding: 0rem 0.5rem;
+    }
+  }
+
+  @media print {
+    .skill {
+      padding: 0rem 0.25rem;
     }
   }
 
@@ -111,8 +130,7 @@ const TAGS = [
     justify-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.1rem ;
-
+    gap: 0.1rem;
   }
 
   .tecnologia {

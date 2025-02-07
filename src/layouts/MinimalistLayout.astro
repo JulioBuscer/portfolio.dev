@@ -47,15 +47,19 @@ const { currentLocale } = Astro;
 
 <style>
   :root {
-    .print{
+    .print {
       display: none;
     }
     @media print {
       .no-print {
         display: none;
       }
-      .print{
+      .print {
         display: inline-flex;
+      }
+      .page-break {
+        page-break-before: always; /* Usar break-before en su lugar si es posible */
+        break-before: always;
       }
     }
   }

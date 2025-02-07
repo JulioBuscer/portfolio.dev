@@ -2,7 +2,7 @@
 const { title } = Astro.props;
 ---
 
-<section>
+<section {...Astro.props}>
   {title && <h2>{title}</h2>}
   <slot />
   <hr />
@@ -23,5 +23,21 @@ const { title } = Astro.props;
   hr {
     margin: 12px 0;
     border: 1px solid #555;
+  }
+
+  @media print {
+    section {
+      margin: 0 auto 0;
+      padding: 0;
+    }
+
+    h2 {
+      margin-bottom: 0px;
+    }
+
+    hr {
+      margin: 8px 0;
+      border: 1px solid #555;
+    }
   }
 </style>

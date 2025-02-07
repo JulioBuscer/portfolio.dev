@@ -4,36 +4,49 @@ import Section from "../Section.astro";
 //import { projects } from "@cv";
 
 import type { CvData } from "@/interfaces/CvData.ts";
-const { title } = Astro.props;
-const { projects } = Astro.props as CvData;
-
-import LinkExtrernalIcon from "@/icons/Link-External.astro";
+const { title, personalProject } = Astro.props;
+const { projects, work } = Astro.props as CvData;
 ---
 
 <Section title={title}>
   <ul>
     {
-      projects.map(({ name, description, summary, url, highlights }) => (
-        <li class="py-2">
-          <p>
-            {url ? (
-              <a href={url} target="_blank">
-                {"🔗 " + name}
-              </a>
-            ) : (
-              <b>{name}</b>
-            )}
-            - {summary} (
-            {highlights?.map((highlight, i) => (
-              <i>
-                {highlight}
-                {i < highlights.length - 1 ? ", " : "."}
-              </i>
-            ))}
-            )
-          </p>
-        </li>
-      ))
+      projects.map(
+        ({
+          name,
+          description,
+          summary,
+          url,
+          highlights,
+          id_work,
+          technologies,
+        }) => {
+          let work_company = work.find((w) => w.id === id_work)?.name;
+          return (
+            <li class="py-2">
+              <p>
+                {url ? (
+                  <a href={url} target="_blank">
+                    <span class="no-print">🔗 </span>
+                    {name}
+                    {work_company ? " - " + work_company : ""}
+                  </a>
+                ) : (
+                  <b>
+                    {name}
+                    {work_company
+                      ? " - " + work_company
+                      : " - " + personalProject}
+                  </b>
+                )}
+                <p>{summary}</p>
+                <p>({highlights?.join(", ")})</p>
+                <p class="italic">[{technologies?.join(", ")}]</p>
+              </p>
+            </li>
+          );
+        },
+      )
     }
   </ul>
 </Section>

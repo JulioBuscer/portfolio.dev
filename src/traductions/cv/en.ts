@@ -37,6 +37,7 @@ export const cv: CvData = {
   },
   work: [
     {
+      id: 2,
       name: "Corporativo EDUCEM",
       position: "Web Developer",
       url: "https://www.educem.mx",
@@ -50,6 +51,7 @@ export const cv: CvData = {
       ]
     },
     {
+      id: 1,
       name: "Novatec Group",
       position: "FullStack Java JSF developer",
       url: "https://novatecgroup.com/es/",
@@ -120,7 +122,7 @@ export const cv: CvData = {
     {
       name: "Backend",
       level: "Advanced",
-      keywords: ["Spring", "Java", "Node.js",],
+      keywords: ["Spring", "Java", "Node.js","Python"],
     },
     {
       name: "Data Bases",
@@ -157,52 +159,71 @@ export const cv: CvData = {
   ],
   projects: [
     {
-      name: "Diplomas (Educem,Tecmas,Firenze)",
+      name: "Document Classifier",
       startDate: "2024-11-01",
       endDate: "2025-01-09",
-      summary: "Digital diploma management system for Educem, Tecmas, and Firenze students.",
+      summary: "",
       description:
-        `
-        Developed a digital platform for educational companies, allowing the generation of diplomas automatically based on course templates and online access to diplomas. Utilized Next.js, TypeScript, MUI, and QR and PDF technologies for ensuring the authenticity and dynamic nature of diplomas. Implemented a role and permission system to manage users and synchronize diplomas with external platforms.
-        `,
-      highlights: ["Next js", "TypeScript", "MUI", "CSS", "QR", "PDF"],
-      url: "https://educem.mx/",
+        "I trained a model.",
+      highlights: ["AI", "Python Microservice"],
+      technologies: ["Python", "ML", "Torch", "OCR", "FastAPI", "SQL Server"],
+      url: "https://diplomas.educem.mx/",
       image: "/projects/Diplomas Multimarca.webp",
+      id_work: 2,
+      featured: true
     },
     {
-      name: "Educem (Official Website)",
+      name: "Multibrand Diplomas",
+      startDate: "2024-11-01",
+      endDate: "2025-01-09",
+      summary: "System to manage student diplomas for Educem, Tecmas, and Firenze.",
+      description:
+        "I developed a platform to manage student diplomas for Educem, Tecmas, and Firenze. The platform allows for the automatic generation of diplomas from templates associated with courses and enables online consultation. I used Next.js, TypeScript, MUI, and QR and PDF technologies to ensure the authenticity and dynamism of the diplomas. Additionally, I implemented a role and permission system to manage users and synchronize diplomas with external platforms.",
+      highlights: ["Internal web platform", "Public web application", "Java Microservice"],
+      technologies: ["Next.js", "TS", "MUI", "CSS", "QR", "PDF", "Spring", "SQL Server"],
+      url: "https://diplomas.educem.mx/",
+      image: "/projects/Diplomas Multimarca.webp",
+      id_work: 2,
+      featured: true
+    },
+    {
+      name: "Commercial Websites",
       startDate: "2024-08-01",
       endDate: "2024-11-01",
-      summary: "Dynamic information platform for Educem.",
+      summary: "Informational commercial websites for Educem, Tecmás, and Firenze.",
       description:
-        `
-        Educem required a modernization of its website to improve its functionality and align it with its institutional identity. The challenge was to automate the management of data and optimize the user experience. I implemented the design with Next.js, TypeScript, and Material UI, integrating dynamic data from an API. The result was an efficient and functional site that improved the management of digital content for the company.
-        `,
-      highlights: ["Next js", "TypeScript", "MUI", "CSS",],
+        "The EDUCEM corporation needed to modernize its websites to improve functionality and align them with its institutional identity. The challenge was to automate data handling and optimize the user experience. I implemented the design using Next.js, TypeScript, and Material UI, integrating dynamic data from an API. The result was an efficient and functional site that improved the company's digital content management.",
+      highlights: ["Web application", "Java Microservice"],
+      technologies: ["Next.js", "TypeScript", "MUI", "CSS"],
       url: "https://educem.mx/",
       image: "/projects/Educem.webp",
-    }, {
+      id_work: 2,
+    },
+    {
       name: "Offer Form",
       startDate: "2022-01-01",
-      endDate: null,      
+      endDate: null,
       summary: "Offer tracking tool.",
       description:
-        `I developed 'Offer Form', a tool to centralize the tracking of offers in Novatec, connecting proposals with the CRM to validate costs and compare budgets for sales, production and real costs. I proposed architectural improvements, implemented user control, security with tokens and exportable reports. The tool reduced the tracking time from weeks to seconds, standardized processes and improved strategic decision making.`,
-      highlights: ["JSF", "XHTML", "CSS", "Java", "JavaScript", "SQL Server"],
+        "The company Novatec needed a tool to centralize offer tracking. I participated in the development of the Offer Form tool, connecting proposals with the CRM to validate costs and compare sales, production, and actual cost budgets. I proposed architectural improvements, implemented user control, token-based security, and exportable reports. The tool reduced tracking time from weeks to seconds, standardized processes, and improved strategic decision-making.",
+      highlights: ["Enterprise web application", "Exportable reports", "Email sending"],
+      technologies: ["JSF", "XHTML", "CSS", "Java", "JavaScript", "SQL Server"],
       url: "",
       image: "/projects/Project-OfferForm.webp",
+      id_work: 1,
+      featured: true
     },
     {
       name: "Local AI Chat",
       startDate: "2024-06-20",
       endDate: null,
-      summary: "Local AI Chat is an application that operates 100% in the browser using Web LLM and Web Workers, optimized for resource-constrained environments.",
+      summary: "AI chat application that operates 100% in the browser using Web LLM and Web Workers, optimized for resource-limited environments.",
       description:
-        "I created a local AI chat as a personal project, implementing AI models directly in the browser using Web LLM and client-side resources. The main challenge was optimizing performance in resource-constrained environments. I used HTML, CSS, JavaScript, Web LLM and Web Workers to achieve efficient processing and a smooth user experience. The result was a functional application that operates without external servers, showcasing the potential of local AI.",
-      highlights: ["HTML", "CSS", "JavaScript", "Web LLM", "Web Workers"],
+        "I created a Local AI Chat as a personal project, implementing AI models directly in the browser using Web LLM and client resources. The main challenge was optimizing performance in resource-limited environments. I used HTML, CSS, JavaScript, Web LLM, and Web Workers to achieve efficient processing and a smooth experience. The result was a functional application that operates without external servers, showcasing the potential of local AI.",
+      highlights: ["AI", "Web application", "Local service"],
+      technologies: ["Web LLM", "Web Workers", "JavaScript", "HTML", "CSS"],
       url: "https://chat-ia-local.netlify.app/",
       image: "/projects/ChatIALocal-preview.avif",
     },
-
   ],
 };
